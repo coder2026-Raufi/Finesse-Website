@@ -7,7 +7,7 @@
    4. Language switcher      9. About / Services        14. RTL (fa, ps, ar)
    5. Theme switch          10. Goals & Objectives      15. Reduced motion
    ===================================================================== */
-
+ 
 /* ---------- 1. FONTS & VARIABLES ---------- */
 /* Put your Bahij Titr files inside the FONTS folder (see FONTS/README.txt).
    If a file is missing the browser quietly uses the next font in --font. */
@@ -35,7 +35,7 @@
   font-style: normal;
   font-display: swap;
 }
-
+ 
 :root {
   --font:
     "Bahij Titr", "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic",
@@ -48,7 +48,7 @@
   --radius: 22px;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-
+ 
 body {
   --bg: #f3f7fc;
   --bg-alt: #ffffff;
@@ -81,7 +81,7 @@ body[data-theme="dark"] {
   --shine: rgba(120, 190, 255, 0.28);
   --input-bg: #12213f;
 }
-
+ 
 /* ---------- 2. BASE ---------- */
 *,
 *::after,
@@ -140,7 +140,7 @@ a {
   background: var(--blue);
   color: #fff;
 }
-
+ 
 .section {
   position: relative;
   padding: clamp(56px, 8vw, 110px) 0;
@@ -190,7 +190,7 @@ html[lang="en"] .eyebrow {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-
+ 
 /* Buttons (Bootstrap 4 classes, restyled) */
 .btn {
   font-family: var(--font);
@@ -240,7 +240,7 @@ html[lang="en"] .eyebrow {
   box-shadow: 0 0 0 3px rgba(41, 197, 240, 0.4);
   outline: none;
 }
-
+ 
 /* Scroll progress + back to top */
 #scrollProgress {
   position: fixed;
@@ -279,7 +279,7 @@ html[lang="en"] .eyebrow {
   pointer-events: auto;
   translate: 0 0;
 }
-
+ 
 /* Reveal on scroll (uses the independent `translate` property so it never
    fights with the 3D `transform` of the cards) */
 .js .reveal {
@@ -293,7 +293,7 @@ html[lang="en"] .eyebrow {
   opacity: 1;
   translate: 0 0;
 }
-
+ 
 /* ---------- 3. NAVBAR ---------- */
 .navbar-style {
   padding: 0.55rem 0;
@@ -394,7 +394,7 @@ body[data-theme="dark"] .navbar-toggler-icon {
     display: none;
   }
 }
-
+ 
 /* ---------- 4. LANGUAGE SWITCHER ---------- */
 .lang-switch {
   position: relative;
@@ -496,7 +496,7 @@ body:not([data-theme="dark"]) .lang-menu {
 .lang-option.selected small {
   color: #d7eeff;
 }
-
+ 
 /* ---------- 5. THEME SWITCH (kept from the original, tidied) ---------- */
 .theme-toggle-wrapper {
   display: inline-flex;
@@ -572,7 +572,7 @@ body:not([data-theme="dark"]) .lang-menu {
 .theme-switch .custom-control-input:focus + .custom-control-label {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
 }
-
+ 
 /* ---------- 6. HERO + PAGE BANNERS ---------- */
 .banner-style,
 .about-us-banner,
@@ -633,7 +633,7 @@ body:not([data-theme="dark"]) .lang-menu {
   min-height: 0;
   padding: clamp(60px, 9vw, 110px) 0;
 }
-
+ 
 .banner-title {
   font-size: clamp(2rem, 5vw, 3.6rem);
   font-weight: 800;
@@ -684,7 +684,7 @@ html[dir="rtl"] .banner-title {
   font-weight: 800;
   color: var(--cyan) !important;
 }
-
+ 
 /* glowing orbs + dotted grid behind hero text */
 .hero-bg {
   position: absolute;
@@ -776,7 +776,7 @@ html[dir="rtl"] .banner-title {
     padding-top: 130px;
   }
 }
-
+ 
 /* 3D hero scene: one rotation on the container, layers sit at different depths */
 .hero-stage {
   display: flex;
@@ -883,7 +883,7 @@ html[dir="rtl"] .banner-title {
     padding-bottom: 1rem;
   }
 }
-
+ 
 /* ---------- 7. 3D CARD SYSTEM ----------
    Any element with data-tilt becomes a 3D card (JS sets --rx --ry --mx --my).
    Children with .pop / .pop-2 / .pop-3 float above the card surface.  */
@@ -950,7 +950,7 @@ html[dir="rtl"] .banner-title {
 .pop-3 {
   transform: translateZ(16px);
 }
-
+ 
 .icon-bubble {
   display: inline-grid;
   place-items: center;
@@ -971,7 +971,7 @@ html[dir="rtl"] .banner-title {
   font-size: 2rem;
   color: var(--accent);
 }
-
+ 
 /* Photo frames: image + glowing plate behind it */
 .photo-3d {
   display: block;
@@ -1001,7 +1001,7 @@ html[dir="rtl"] .banner-title {
 [dir="rtl"] .photo-3d::after {
   inset: 22px 22px -18px -18px;
 }
-
+ 
 /* ---------- 8. HOME SECTIONS ---------- */
 .who-photo {
   max-width: 400px;
@@ -1042,7 +1042,7 @@ html[dir="rtl"] .banner-title {
   border-color: var(--line);
   margin: 1.2rem 0;
 }
-
+ 
 /* ---------- 9. ABOUT + SERVICES ---------- */
 .overview-text {
   line-height: 2;
@@ -1123,7 +1123,7 @@ body[data-theme="dark"] .into-cart-icons {
   background-clip: text;
   color: transparent;
 }
-
+ 
 /* ---------- 10. GOALS & OBJECTIVES ---------- */
 .goal-cart {
   display: flex;
@@ -1212,7 +1212,7 @@ body[data-theme="dark"] .into-cart-icons {
     flex-direction: column;
   }
 }
-
+ 
 /* ---------- 11. CONTACT ---------- */
 .info-card {
   display: flex;
@@ -1321,7 +1321,7 @@ body[data-theme="dark"] .social img {
   width: 100%;
   padding: 0.85rem;
 }
-
+ 
 /* ---------- 12. FOOTER ---------- */
 .footer-style {
   position: relative;
@@ -1431,7 +1431,7 @@ body[data-theme="dark"] .social img {
   unicode-bidi: isolate;
   display: inline-block;
 }
-
+ 
 /* ---------- 13. MODAL (Bootstrap 4 modal, restyled) ---------- */
 .modal-content {
   color: var(--text);
@@ -1483,9 +1483,20 @@ body[data-theme="dark"] .social img {
 .modal-footer {
   border-color: var(--line);
 }
-
+ 
 /* ---------- 14. RTL (Persian, Pashto, Arabic) ----------
    Bootstrap 4 has no RTL build, so these rules flip what we use.  */
+/* Bootstrap 4 hard-codes "text-align: left" on body, tooltips, popovers and
+   dropdowns. "start" means: left in LTR, right in RTL. Everything that does
+   not set its own alignment inherits this, so Fa / Ps / Ar text sits on the
+   right. Centered elements keep their own text-align: center. */
+body,
+caption,
+.tooltip,
+.popover,
+.dropdown-menu {
+  text-align: start;
+}
 html[dir="rtl"] body {
   line-height: 1.9;
   font-size: 1.04rem;
@@ -1506,7 +1517,7 @@ html[dir="rtl"] .banner-title,
 html[dir="rtl"] .page-title {
   line-height: 1.6;
 }
-
+ 
 /* ---------- 15. REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
