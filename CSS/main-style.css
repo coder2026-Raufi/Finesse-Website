@@ -7,7 +7,7 @@
    4. Language switcher      9. About / Services        14. RTL (fa, ps, ar)
    5. Theme switch          10. Goals & Objectives      15. Reduced motion
    ===================================================================== */
- 
+
 /* ---------- 1. FONTS & VARIABLES ---------- */
 /* Put your Bahij Titr files inside the FONTS folder (see FONTS/README.txt).
    If a file is missing the browser quietly uses the next font in --font. */
@@ -35,7 +35,7 @@
   font-style: normal;
   font-display: swap;
 }
- 
+
 :root {
   --font:
     "Bahij Titr", "Segoe UI", Tahoma, "Noto Naskh Arabic", "Noto Sans Arabic",
@@ -47,8 +47,11 @@
   --cyan: #29c5f0;
   --radius: 22px;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --brand: #1264d8;
+  --brand-dark: #0849a5;
+  --white: #ffffff;
 }
- 
+
 body {
   --bg: #f3f7fc;
   --bg-alt: #ffffff;
@@ -81,7 +84,7 @@ body[data-theme="dark"] {
   --shine: rgba(120, 190, 255, 0.28);
   --input-bg: #12213f;
 }
- 
+
 /* ---------- 2. BASE ---------- */
 *,
 *::after,
@@ -140,7 +143,7 @@ a {
   background: var(--blue);
   color: #fff;
 }
- 
+
 .section {
   position: relative;
   padding: clamp(56px, 8vw, 110px) 0;
@@ -190,7 +193,7 @@ html[lang="en"] .eyebrow {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
- 
+
 /* Buttons (Bootstrap 4 classes, restyled) */
 .btn {
   font-family: var(--font);
@@ -208,14 +211,24 @@ html[lang="en"] .eyebrow {
 .btn-primary {
   border: 0;
   color: #fff !important;
-  background: linear-gradient(135deg, var(--blue-dark), var(--blue) 55%, var(--cyan));
+  background: linear-gradient(
+    135deg,
+    var(--blue-dark),
+    var(--blue) 55%,
+    var(--cyan)
+  );
   box-shadow: 0 10px 24px rgba(8, 121, 209, 0.35);
 }
 .btn-primary:hover,
 .btn-primary:focus {
   transform: translateY(-3px);
   box-shadow: 0 16px 34px rgba(8, 121, 209, 0.5);
-  background: linear-gradient(135deg, var(--blue-dark), var(--blue) 40%, var(--cyan));
+  background: linear-gradient(
+    135deg,
+    var(--blue-dark),
+    var(--blue) 40%,
+    var(--cyan)
+  );
 }
 .btn-outline-primary {
   color: var(--accent);
@@ -240,7 +253,7 @@ html[lang="en"] .eyebrow {
   box-shadow: 0 0 0 3px rgba(41, 197, 240, 0.4);
   outline: none;
 }
- 
+
 /* Scroll progress + back to top */
 #scrollProgress {
   position: fixed;
@@ -279,7 +292,7 @@ html[lang="en"] .eyebrow {
   pointer-events: auto;
   translate: 0 0;
 }
- 
+
 /* Reveal on scroll (uses the independent `translate` property so it never
    fights with the 3D `transform` of the cards) */
 .js .reveal {
@@ -293,7 +306,7 @@ html[lang="en"] .eyebrow {
   opacity: 1;
   translate: 0 0;
 }
- 
+
 /* ---------- 3. NAVBAR ---------- */
 .navbar-style {
   padding: 0.55rem 0;
@@ -340,9 +353,9 @@ html[lang="en"] .eyebrow {
   color: var(--accent);
 }
 .finesse-name-detail {
-  font-size: 0.66rem;
+  font-size: 0.56rem;
   color: var(--muted);
-  max-width: 240px;
+  max-width: 200px;
 }
 .navbar-toggler {
   border: 1px solid var(--line);
@@ -354,20 +367,25 @@ body[data-theme="dark"] .navbar-toggler-icon {
 .navbar .nav-link {
   position: relative;
   padding: 0.5rem 1.05rem;
-  border-radius: 999px;
+  border-radius: 9px;
   font-weight: 700;
   font-size: 0.95rem;
   color: var(--text) !important;
-  transition:
-    background 0.25s,
-    color 0.25s;
+  transition: all 0.25s;
+  margin: 5px 5px;
 }
 .navbar .nav-link:hover {
-  background: rgba(8, 121, 209, 0.12);
+  background: rgba(6, 80, 137, 0.12);
+  transform: translateY(-5px);
 }
 .navbar .nav-item.active .nav-link {
   color: #fff !important;
-  background: linear-gradient(135deg, var(--blue-dark), var(--blue) 60%, var(--cyan));
+  background: linear-gradient(
+    135deg,
+    var(--blue-dark),
+    var(--blue) 60%,
+    var(--cyan)
+  );
   box-shadow: 0 8px 20px rgba(8, 121, 209, 0.35);
 }
 .nav-tools {
@@ -394,7 +412,7 @@ body[data-theme="dark"] .navbar-toggler-icon {
     display: none;
   }
 }
- 
+
 /* ---------- 4. LANGUAGE SWITCHER ---------- */
 .lang-switch {
   position: relative;
@@ -496,7 +514,7 @@ body:not([data-theme="dark"]) .lang-menu {
 .lang-option.selected small {
   color: #d7eeff;
 }
- 
+
 /* ---------- 5. THEME SWITCH (kept from the original, tidied) ---------- */
 .theme-toggle-wrapper {
   display: inline-flex;
@@ -563,7 +581,10 @@ body:not([data-theme="dark"]) .lang-menu {
 .theme-switch .custom-control-input:checked + .custom-control-label::after {
   transform: translateX(34px);
 }
-[dir="rtl"] .theme-switch .custom-control-input:checked + .custom-control-label::after {
+[dir="rtl"]
+  .theme-switch
+  .custom-control-input:checked
+  + .custom-control-label::after {
   transform: translateX(-34px);
 }
 .theme-switch .custom-control-input:checked + .custom-control-label .sun-icon {
@@ -572,7 +593,7 @@ body:not([data-theme="dark"]) .lang-menu {
 .theme-switch .custom-control-input:focus + .custom-control-label {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
 }
- 
+
 /* ---------- 6. HERO + PAGE BANNERS ---------- */
 .banner-style,
 .about-us-banner,
@@ -633,7 +654,7 @@ body:not([data-theme="dark"]) .lang-menu {
   min-height: 0;
   padding: clamp(60px, 9vw, 110px) 0;
 }
- 
+
 .banner-title {
   font-size: clamp(2rem, 5vw, 3.6rem);
   font-weight: 800;
@@ -684,13 +705,16 @@ html[dir="rtl"] .banner-title {
   font-weight: 800;
   color: var(--cyan) !important;
 }
- 
+
 /* glowing orbs + dotted grid behind hero text */
 .hero-bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.14) 1px,
+    transparent 1px
+  );
   background-size: 34px 34px;
   mask-image: linear-gradient(to bottom, #000 30%, transparent);
   -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent);
@@ -776,7 +800,7 @@ html[dir="rtl"] .banner-title {
     padding-top: 130px;
   }
 }
- 
+
 /* 3D hero scene: one rotation on the container, layers sit at different depths */
 .hero-stage {
   display: flex;
@@ -883,7 +907,7 @@ html[dir="rtl"] .banner-title {
     padding-bottom: 1rem;
   }
 }
- 
+
 /* ---------- 7. 3D CARD SYSTEM ----------
    Any element with data-tilt becomes a 3D card (JS sets --rx --ry --mx --my).
    Children with .pop / .pop-2 / .pop-3 float above the card surface.  */
@@ -894,7 +918,8 @@ html[dir="rtl"] .banner-title {
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
   transform-style: preserve-3d;
-  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transform: perspective(1000px) rotateX(var(--rx, 0deg))
+    rotateY(var(--ry, 0deg));
   transition:
     transform 0.45s var(--ease),
     box-shadow 0.35s,
@@ -950,14 +975,18 @@ html[dir="rtl"] .banner-title {
 .pop-3 {
   transform: translateZ(16px);
 }
- 
+
 .icon-bubble {
   display: inline-grid;
   place-items: center;
   width: 92px;
   height: 92px;
   border-radius: 28px;
-  background: linear-gradient(145deg, rgba(8, 121, 209, 0.14), rgba(41, 197, 240, 0.2));
+  background: linear-gradient(
+    145deg,
+    rgba(8, 121, 209, 0.14),
+    rgba(41, 197, 240, 0.2)
+  );
   box-shadow:
     inset 0 0 0 1px rgba(8, 121, 209, 0.2),
     0 14px 26px rgba(8, 121, 209, 0.22);
@@ -971,7 +1000,7 @@ html[dir="rtl"] .banner-title {
   font-size: 2rem;
   color: var(--accent);
 }
- 
+
 /* Photo frames: image + glowing plate behind it */
 .photo-3d {
   display: block;
@@ -1001,7 +1030,7 @@ html[dir="rtl"] .banner-title {
 [dir="rtl"] .photo-3d::after {
   inset: 22px 22px -18px -18px;
 }
- 
+
 /* ---------- 8. HOME SECTIONS ---------- */
 .who-photo {
   max-width: 400px;
@@ -1042,7 +1071,270 @@ html[dir="rtl"] .banner-title {
   border-color: var(--line);
   margin: 1.2rem 0;
 }
- 
+/* -----------12. PROJECTS ---------------- */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 25px;
+  width: 100%;
+}
+
+.pro-1 {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: all 0.5s ease;
+}
+.project-img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.card-body-desc {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  transform: translateY(150px);
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  background: #000;
+  color: white;
+  padding: 20px;
+}
+.pro-1:hover {
+  transform: translateY(-10px) scale(1.06);
+}
+.pro-1:hover .card-body-desc {
+  transform: translateY(98px);
+  opacity: 1;
+  visibility: visible;
+}
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+}
+.hero-slide {
+  position: relative;
+  height: 650px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 22, 48, 0.92) 0%,
+    rgba(5, 22, 48, 0.75) 48%,
+    rgba(5, 22, 48, 0.2) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  animation: heroFade 0.8s ease;
+}
+
+.hero-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #8bbcff;
+  margin-bottom: 25px;
+}
+
+.hero-label i {
+  font-size: 8px;
+  margin-right: 8px;
+  color: #3988f5;
+}
+
+.hero-content h1 {
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1.2;
+  max-width: 750px;
+  margin-bottom: 25px;
+}
+
+.hero-content h1 span {
+  display: block;
+  color: #65a5ff;
+}
+
+.hero-content p {
+  font-size: 17px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 570px;
+  margin-bottom: 35px;
+}
+
+.hero-buttons .btn {
+  padding: 14px 25px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-brand {
+  background: var(--brand);
+  color: white;
+  border: 1px solid var(--brand);
+}
+
+.btn-brand:hover {
+  background: var(--brand-dark);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(18, 100, 216, 0.3);
+}
+
+.btn-outline-light:hover {
+  background: white;
+  color: var(--brand-dark);
+  transform: translateY(-3px);
+}
+
+/* Navigation arrows */
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 7%;
+  opacity: 1;
+}
+
+.carousel-control-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  transition: 0.3s;
+}
+
+.carousel-control-icon:hover {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+/* Indicators */
+
+.hero-carousel .carousel-indicators {
+  bottom: 25px;
+  justify-content: flex-start;
+  padding-left: 15px;
+  margin-left: calc((100% - 1140px) / 2);
+}
+
+.hero-carousel .carousel-indicators li {
+  width: 28px;
+  height: 4px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  transition: 0.3s;
+}
+
+.hero-carousel .carousel-indicators li.active {
+  width: 50px;
+  background: #3988f5;
+}
+
+/* Animation */
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 991px) {
+  .hero-slide {
+    height: 580px;
+  }
+
+  .hero-content h1 {
+    font-size: 46px;
+  }
+
+  .hero-carousel .carousel-indicators {
+    margin-left: 8%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-slide {
+    height: 600px;
+    background-position: center;
+  }
+
+  .hero-overlay {
+    background: rgba(5, 22, 48, 0.78);
+  }
+
+  .hero-content {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 37px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .hero-buttons .btn {
+    margin-bottom: 12px;
+    padding: 12px 17px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 12%;
+  }
+
+  .carousel-control-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-carousel .carousel-indicators {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
 /* ---------- 9. ABOUT + SERVICES ---------- */
 .overview-text {
   line-height: 2;
@@ -1123,7 +1415,7 @@ body[data-theme="dark"] .into-cart-icons {
   background-clip: text;
   color: transparent;
 }
- 
+
 /* ---------- 10. GOALS & OBJECTIVES ---------- */
 .goal-cart {
   display: flex;
@@ -1146,7 +1438,12 @@ body[data-theme="dark"] .into-cart-icons {
   font-size: 1.4rem;
   font-weight: 800;
   color: #fff;
-  background: linear-gradient(135deg, var(--blue-dark), var(--blue) 60%, var(--cyan));
+  background: linear-gradient(
+    135deg,
+    var(--blue-dark),
+    var(--blue) 60%,
+    var(--cyan)
+  );
   box-shadow: 0 14px 24px rgba(8, 121, 209, 0.4);
 }
 .goal-desc {
@@ -1192,7 +1489,11 @@ body[data-theme="dark"] .into-cart-icons {
   border-radius: 22px;
   font-size: 1.7rem;
   color: var(--accent);
-  background: linear-gradient(145deg, rgba(8, 121, 209, 0.14), rgba(41, 197, 240, 0.22));
+  background: linear-gradient(
+    145deg,
+    rgba(8, 121, 209, 0.14),
+    rgba(41, 197, 240, 0.22)
+  );
   box-shadow: 0 12px 22px rgba(8, 121, 209, 0.22);
 }
 .services-cart-disc h6 {
@@ -1212,7 +1513,7 @@ body[data-theme="dark"] .into-cart-icons {
     flex-direction: column;
   }
 }
- 
+
 /* ---------- 11. CONTACT ---------- */
 .info-card {
   display: flex;
@@ -1228,7 +1529,11 @@ body[data-theme="dark"] .into-cart-icons {
   width: 62px;
   height: 62px;
   border-radius: 20px;
-  background: linear-gradient(145deg, rgba(8, 121, 209, 0.12), rgba(41, 197, 240, 0.22));
+  background: linear-gradient(
+    145deg,
+    rgba(8, 121, 209, 0.12),
+    rgba(41, 197, 240, 0.22)
+  );
   box-shadow: 0 12px 22px rgba(8, 121, 209, 0.2);
 }
 .info-icon img {
@@ -1321,7 +1626,7 @@ body[data-theme="dark"] .social img {
   width: 100%;
   padding: 0.85rem;
 }
- 
+
 /* ---------- 12. FOOTER ---------- */
 .footer-style {
   position: relative;
@@ -1431,7 +1736,7 @@ body[data-theme="dark"] .social img {
   unicode-bidi: isolate;
   display: inline-block;
 }
- 
+
 /* ---------- 13. MODAL (Bootstrap 4 modal, restyled) ---------- */
 .modal-content {
   color: var(--text);
@@ -1483,7 +1788,7 @@ body[data-theme="dark"] .social img {
 .modal-footer {
   border-color: var(--line);
 }
- 
+
 /* ---------- 14. RTL (Persian, Pashto, Arabic) ----------
    Bootstrap 4 has no RTL build, so these rules flip what we use.  */
 /* Bootstrap 4 hard-codes "text-align: left" on body, tooltips, popovers and
@@ -1517,7 +1822,7 @@ html[dir="rtl"] .banner-title,
 html[dir="rtl"] .page-title {
   line-height: 1.6;
 }
- 
+
 /* ---------- 15. REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,

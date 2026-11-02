@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="meta.about">About Us | Finesse</title>
-    <meta name="description" content="About Finesse Research & Management Consultancy Services Company." />
+    <meta
+      name="description"
+      content="About Finesse Research & Management Consultancy Services Company."
+    />
     <link rel="icon" type="image/png" href="../IMAGES/web/logo-small.png" />
     <script>
       /* runs before the page paints: enables animations and applies the saved language direction */
@@ -37,10 +40,19 @@
     <div id="scrollProgress" aria-hidden="true"></div>
 
     <!-- navbar -->
-    <header class="navbar navbar-expand-xl navbar-light fixed-top navbar-style" id="siteNav">
+    <header
+      class="navbar navbar-expand-xl navbar-light fixed-top navbar-style"
+      id="siteNav"
+    >
       <div class="container-fluid">
         <a href="../index.html" class="brand" aria-label="Finesse">
-          <img class="brand-logo" src="../IMAGES/web/logo-small.png" alt="Finesse Company Logo" width="37" height="52" />
+          <img
+            class="brand-logo"
+            src="../IMAGES/web/logo-small.png"
+            alt="Finesse Company Logo"
+            width="37"
+            height="52"
+          />
           <span class="brand-text">
             <span class="finesse-name">Finesse</span>
             <span class="finesse-name-detail" data-i18n="brand.detail"
@@ -63,21 +75,39 @@
 
         <div class="collapse navbar-collapse" id="mynavbar">
           <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a href="../index.html" class="nav-link" data-i18n="nav.home">Home</a>
-          </li>
-          <li class="nav-item active">
-            <a href="about.html" class="nav-link" data-i18n="nav.about">About</a>
-          </li>
-          <li class="nav-item">
-            <a href="services.html" class="nav-link" data-i18n="nav.services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a href="goals-objectives.html" class="nav-link" data-i18n="nav.goals">Goal &amp; Objectives</a>
-          </li>
-          <li class="nav-item">
-            <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
-          </li>
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link" data-i18n="nav.home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a href="about.html" class="nav-link" data-i18n="nav.about"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="services.html" class="nav-link" data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="projects.html" class="nav-link" data-i18n="nav.projects"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="goals-objectives.html"
+                class="nav-link"
+                data-i18n="nav.goals"
+                >Goal &amp; Objectives</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
           </ul>
           <div class="nav-tools">
             <!-- language switcher: English (default), Persian, Pashto, Arabic -->
@@ -96,10 +126,54 @@
                 <i class="fa-solid fa-chevron-down lang-caret"></i>
               </button>
               <ul class="lang-menu" role="listbox" aria-label="Language">
-                <li role="presentation"><button type="button" class="lang-option selected" role="option" aria-selected="true" data-lang="en" lang="en">English <small>EN</small></button></li>
-                <li role="presentation"><button type="button" class="lang-option" role="option" aria-selected="false" data-lang="fa" lang="fa">فارسی <small>FA</small></button></li>
-                <li role="presentation"><button type="button" class="lang-option" role="option" aria-selected="false" data-lang="ps" lang="ps">پښتو <small>PS</small></button></li>
-                <li role="presentation"><button type="button" class="lang-option" role="option" aria-selected="false" data-lang="ar" lang="ar">العربية <small>AR</small></button></li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option selected"
+                    role="option"
+                    aria-selected="true"
+                    data-lang="en"
+                    lang="en"
+                  >
+                    English <small>EN</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="fa"
+                    lang="fa"
+                  >
+                    فارسی <small>FA</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="ps"
+                    lang="ps"
+                  >
+                    پښتو <small>PS</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="ar"
+                    lang="ar"
+                  >
+                    العربية <small>AR</small>
+                  </button>
+                </li>
               </ul>
             </div>
             <!-- Theme Toggle Button -->
@@ -113,12 +187,21 @@
                   data-i18n-al="theme.label"
                 />
                 <label class="custom-control-label" for="themeSwitch">
-                  <span class="theme-icon sun-icon"><i class="fas fa-sun"></i></span>
-                  <span class="theme-icon moon-icon"><i class="fas fa-moon"></i></span>
+                  <span class="theme-icon sun-icon"
+                    ><i class="fas fa-sun"></i
+                  ></span>
+                  <span class="theme-icon moon-icon"
+                    ><i class="fas fa-moon"></i
+                  ></span>
                 </label>
               </div>
             </div>
-            <a href="contact.html" class="btn btn-primary header-btn" data-i18n="nav.cta">Get in Touch</a>
+            <a
+              href="contact.html"
+              class="btn btn-primary header-btn"
+              data-i18n="nav.cta"
+              >Get in Touch</a
+            >
           </div>
         </div>
       </div>
@@ -130,9 +213,13 @@
         <div class="container banner-container">
           <h1 class="page-title" data-i18n="about.title">About Us</h1>
           <nav class="about-links" aria-label="breadcrumb">
-            <a href="../index.html" class="nav-link" data-i18n="nav.home">Home</a>
+            <a href="../index.html" class="nav-link" data-i18n="nav.home"
+              >Home</a
+            >
             <span>/</span>
-            <a href="about.html" class="nav-link active" data-i18n="about.title">About Us</a>
+            <a href="about.html" class="nav-link active" data-i18n="about.title"
+              >About Us</a
+            >
           </nav>
         </div>
       </section>
@@ -142,12 +229,39 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-xl-7 mb-5 mb-xl-0 reveal">
-              <h2 class="section-title" data-i18n="about.ov.title">Company Overview</h2>
-              <p class="text-muted overview-text" data-i18n="about.ov.text">Finesse is a professional consulting firm specializing in research, management, monitoring &amp; evaluation, and capacity building consulting company. We provide organizations, development partners, and government agencies with evidence-based solutions, actionable insights, and practical strategies to improve performance and achieve sustainable impact. With a multidisciplinary team of experts, Finesse combines rigorous research methodologies, strategic advisory, and results-oriented evaluation frameworks to support informed decision-making and organizational growth. Our services are designed to be participatory, context-sensitive, and aligned with international best practices, ensuring measurable outcomes and long-term benefits for communities and organizations alike.</p>
+              <h2 class="section-title" data-i18n="about.ov.title">
+                Company Overview
+              </h2>
+              <p class="text-muted overview-text" data-i18n="about.ov.text">
+                Finesse is a professional consulting firm specializing in
+                research, management, monitoring &amp; evaluation, and capacity
+                building consulting company. We provide organizations,
+                development partners, and government agencies with
+                evidence-based solutions, actionable insights, and practical
+                strategies to improve performance and achieve sustainable
+                impact. With a multidisciplinary team of experts, Finesse
+                combines rigorous research methodologies, strategic advisory,
+                and results-oriented evaluation frameworks to support informed
+                decision-making and organizational growth. Our services are
+                designed to be participatory, context-sensitive, and aligned
+                with international best practices, ensuring measurable outcomes
+                and long-term benefits for communities and organizations alike.
+              </p>
             </div>
             <div class="col-xl-5">
-              <div class="photo-3d card3d reveal" data-tilt data-tilt-max="10" style="max-width: 520px">
-                <img class="pop-2" src="../IMAGES/company-overciew.jpg" alt="Consultants reviewing data together" width="661" height="360" />
+              <div
+                class="photo-3d card3d reveal"
+                data-tilt
+                data-tilt-max="10"
+                style="max-width: 520px"
+              >
+                <img
+                  class="pop-2"
+                  src="../IMAGES/company-overciew.jpg"
+                  alt="Consultants reviewing data together"
+                  width="661"
+                  height="360"
+                />
               </div>
             </div>
           </div>
@@ -157,48 +271,114 @@
       <!-- why choose us -->
       <section class="section section-alt">
         <div class="container">
-          <h2 class="section-title reveal" data-i18n="why.title">Why Choose Us ?</h2>
+          <h2 class="section-title reveal" data-i18n="why.title">
+            Why Choose Us ?
+          </h2>
           <div class="about-grid-style mt-5">
-          <div class="about-cart card3d reveal" data-tilt>
-            <img class="badge-img pop" src="../IMAGES/web/badge-experience.png" alt="" />
-            <h6 class="pop-2" data-i18n="w1.t">Professional Experience</h6>
-            <p class="why-choose-us-text text-muted pop-3" data-i18n="w1.d">A strong track record of providing consultancy services across research, management, evaluation, strategy, and organizational development.</p>
-          </div>
-          <div class="about-cart card3d reveal" data-tilt>
-            <img class="badge-img pop" src="../IMAGES/web/badge-team.png" alt="" />
-            <h6 class="pop-2" data-i18n="w2.t">Highly Qualified and Multidisciplinary Team</h6>
-            <p class="why-choose-us-text text-muted pop-3" data-i18n="w2.d">A team of experienced professionals with diverse technical and sectoral expertise, enabling us to address complex challenges from multiple perspectives.</p>
-          </div>
-          <div class="about-cart card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><i class="fa-solid fa-chart-line"></i></span>
-            <h6 class="pop-2" data-i18n="w3.t">Research, Management and Evaluation Expertise</h6>
-            <p class="why-choose-us-text text-muted pop-3" data-i18n="w3.d">Strong capabilities in research design, data collection and analysis, program management, monitoring, evaluation, and advisory services.</p>
-          </div>
-          <div class="about-cart card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><i class="fa-solid fa-chart-pie"></i></span>
-            <h6 class="pop-2" data-i18n="w4.t">Data-Driven Decision Making</h6>
-            <p class="why-choose-us-text text-muted pop-3" data-i18n="w4.d">We use reliable data, rigorous analysis, and evidence-based methodologies to generate practical insights and support informed decision-making.</p>
-          </div>
-          <div class="about-cart card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><i class="fa-solid fa-map-location-dot"></i></span>
-            <h6 class="pop-2" data-i18n="w5.t">Deep Local and Regional Understanding</h6>
-            <p class="why-choose-us-text text-muted pop-3" data-i18n="w5.d">Our knowledge of local realities, institutional environments, cultural dynamics, and regional contexts enables us to develop solutions that are relevant, practical, and context-sensitive.</p>
-          </div>
-          <div class="about-cart card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><i class="fa-solid fa-puzzle-piece"></i></span>
-            <h6 class="pop-2" data-i18n="w6.t">Integrated Approach</h6>
-            <p class="why-choose-us-text text-muted pop-3" data-i18n="w6.d">We seamlessly connect research, strategy, management, implementation, and evaluation to ensure that our recommendations translate into practical results.</p>
-          </div>
-          <div class="about-cart card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><i class="fa-solid fa-circle-check"></i></span>
-            <h6 class="pop-2" data-i18n="w7.t">Quality and Continuous Improvement</h6>
-            <p class="why-choose-us-text text-muted pop-3" data-i18n="w7.d">We apply structured quality assurance processes, performance monitoring, feedback mechanisms, and continuous improvement throughout every engagement.</p>
-          </div>
-          <div class="about-cart card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><i class="fa-solid fa-handshake"></i></span>
-            <h6 class="pop-2" data-i18n="w8.t">Client-Centered Partnership</h6>
-            <p class="why-choose-us-text text-muted pop-3" data-i18n="w8.d">We work closely with our clients to understand their priorities, adapt our approach to their needs, and deliver solutions aligned with their strategic objectives.</p>
-          </div>
+            <div class="about-cart card3d reveal" data-tilt>
+              <img
+                class="badge-img pop"
+                src="../IMAGES/web/badge-experience.png"
+                alt=""
+              />
+              <h6 class="pop-2" data-i18n="w1.t">Professional Experience</h6>
+              <p class="why-choose-us-text text-muted pop-3" data-i18n="w1.d">
+                A strong track record of providing consultancy services across
+                research, management, evaluation, strategy, and organizational
+                development.
+              </p>
+            </div>
+            <div class="about-cart card3d reveal" data-tilt>
+              <img
+                class="badge-img pop"
+                src="../IMAGES/web/badge-team.png"
+                alt=""
+              />
+              <h6 class="pop-2" data-i18n="w2.t">
+                Highly Qualified and Multidisciplinary Team
+              </h6>
+              <p class="why-choose-us-text text-muted pop-3" data-i18n="w2.d">
+                A team of experienced professionals with diverse technical and
+                sectoral expertise, enabling us to address complex challenges
+                from multiple perspectives.
+              </p>
+            </div>
+            <div class="about-cart card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><i class="fa-solid fa-chart-line"></i
+              ></span>
+              <h6 class="pop-2" data-i18n="w3.t">
+                Research, Management and Evaluation Expertise
+              </h6>
+              <p class="why-choose-us-text text-muted pop-3" data-i18n="w3.d">
+                Strong capabilities in research design, data collection and
+                analysis, program management, monitoring, evaluation, and
+                advisory services.
+              </p>
+            </div>
+            <div class="about-cart card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><i class="fa-solid fa-chart-pie"></i
+              ></span>
+              <h6 class="pop-2" data-i18n="w4.t">
+                Data-Driven Decision Making
+              </h6>
+              <p class="why-choose-us-text text-muted pop-3" data-i18n="w4.d">
+                We use reliable data, rigorous analysis, and evidence-based
+                methodologies to generate practical insights and support
+                informed decision-making.
+              </p>
+            </div>
+            <div class="about-cart card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><i class="fa-solid fa-map-location-dot"></i
+              ></span>
+              <h6 class="pop-2" data-i18n="w5.t">
+                Deep Local and Regional Understanding
+              </h6>
+              <p class="why-choose-us-text text-muted pop-3" data-i18n="w5.d">
+                Our knowledge of local realities, institutional environments,
+                cultural dynamics, and regional contexts enables us to develop
+                solutions that are relevant, practical, and context-sensitive.
+              </p>
+            </div>
+            <div class="about-cart card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><i class="fa-solid fa-puzzle-piece"></i
+              ></span>
+              <h6 class="pop-2" data-i18n="w6.t">Integrated Approach</h6>
+              <p class="why-choose-us-text text-muted pop-3" data-i18n="w6.d">
+                We seamlessly connect research, strategy, management,
+                implementation, and evaluation to ensure that our
+                recommendations translate into practical results.
+              </p>
+            </div>
+            <div class="about-cart card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><i class="fa-solid fa-circle-check"></i
+              ></span>
+              <h6 class="pop-2" data-i18n="w7.t">
+                Quality and Continuous Improvement
+              </h6>
+              <p class="why-choose-us-text text-muted pop-3" data-i18n="w7.d">
+                We apply structured quality assurance processes, performance
+                monitoring, feedback mechanisms, and continuous improvement
+                throughout every engagement.
+              </p>
+            </div>
+            <div class="about-cart card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><i class="fa-solid fa-handshake"></i
+              ></span>
+              <h6 class="pop-2" data-i18n="w8.t">
+                Client-Centered Partnership
+              </h6>
+              <p class="why-choose-us-text text-muted pop-3" data-i18n="w8.d">
+                We work closely with our clients to understand their priorities,
+                adapt our approach to their needs, and deliver solutions aligned
+                with their strategic objectives.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -206,7 +386,10 @@
       <!-- ad section -->
       <section class="ad-section">
         <div class="container reveal">
-          <h2 data-i18n="ad.2">Building Stronger Institutions Through Knowledge, Collaboration, and Sustainable Impact.</h2>
+          <h2 data-i18n="ad.2">
+            Building Stronger Institutions Through Knowledge, Collaboration, and
+            Sustainable Impact.
+          </h2>
         </div>
       </section>
     </main>
@@ -221,17 +404,30 @@
             </a>
             <p class="footer-title">
               <strong>FINESSE</strong>
-              <span data-i18n="brand.detail">Research &amp; Management Consultancy Services Company</span>
+              <span data-i18n="brand.detail"
+                >Research &amp; Management Consultancy Services Company</span
+              >
             </p>
           </div>
           <div>
             <h4 data-i18n="footer.links">Quick Links</h4>
             <ul class="footer-links">
-            <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
-            <li><a href="about.html" data-i18n="nav.about">About</a></li>
-            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-            <li><a href="goals-objectives.html" data-i18n="nav.goals">Goal &amp; Objectives</a></li>
-            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+              <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+              <li><a href="about.html" data-i18n="nav.about">About</a></li>
+              <li>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+              </li>
+              <li>
+                <a href="projects.html" data-i18n="nav.projects">Projects</a>
+              </li>
+              <li>
+                <a href="goals-objectives.html" data-i18n="nav.goals"
+                  >Goal &amp; Objectives</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" data-i18n="nav.contact">Contact</a>
+              </li>
             </ul>
           </div>
           <div class="contact-info">
@@ -249,9 +445,33 @@
               <span class="ltr-text">+93 78 600 9699</span>
             </a>
             <div class="social mt-4">
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Open Facebook" data-i18n-tt="social.fb" aria-label="Facebook"><img src="../IMAGES/icnos/facebook.png" alt="" /></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Open LinkedIn" data-i18n-tt="social.li" aria-label="LinkedIn"><img src="../IMAGES/icnos/linkedin.png" alt="" /></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Open WhatsApp" data-i18n-tt="social.wa" aria-label="WhatsApp"><img src="../IMAGES/icnos/whatsapp.png" alt="" /></a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open Facebook"
+                data-i18n-tt="social.fb"
+                aria-label="Facebook"
+                ><img src="../IMAGES/icnos/facebook.png" alt=""
+              /></a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open LinkedIn"
+                data-i18n-tt="social.li"
+                aria-label="LinkedIn"
+                ><img src="../IMAGES/icnos/linkedin.png" alt=""
+              /></a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open WhatsApp"
+                data-i18n-tt="social.wa"
+                aria-label="WhatsApp"
+                ><img src="../IMAGES/icnos/whatsapp.png" alt=""
+              /></a>
             </div>
           </div>
         </div>
@@ -263,7 +483,13 @@
     </footer>
     <!-- end of footer -->
 
-    <button type="button" id="toTop" class="to-top" aria-label="Back to top" data-i18n-al="totop.label">
+    <button
+      type="button"
+      id="toTop"
+      class="to-top"
+      aria-label="Back to top"
+      data-i18n-al="totop.label"
+    >
       <i class="fa-solid fa-arrow-up"></i>
     </button>
   </body>

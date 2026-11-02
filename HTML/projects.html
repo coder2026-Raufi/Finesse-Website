@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="meta.projects">Projects | Finesse</title>
+    <meta
+      name="description"
+      content="Projects by Finesse Research & Management Consultancy Services Company."
+    />
+    <link rel="icon" type="image/png" href="../IMAGES/web/logo-small.png" />
+    <script>
+      /* runs before the page paints: enables animations and applies the saved language direction */
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("js");
+        try {
+          var l = localStorage.getItem("websiteLang");
+          if (l && l !== "en") {
+            d.lang = l;
+            d.dir = "rtl";
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <!-- css files -->
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../CSS/main-style.css" />
+    <link rel="stylesheet" href="../CSS/projects.css" />
+    <!-- script files -->
+    <script src="../JS/jquery-3.7.1.slim.min.js" defer></script>
+    <script src="../JS/bootstrap.bundle.min.js" defer></script>
+    <script src="../JS/i18n.js" defer></script>
+    <script src="../JS/main-script.js" defer></script>
+    <script src="../JS/projects.js" defer></script>
+  </head>
+  <body>
+    <div id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- navbar -->
+    <header
+      class="navbar navbar-expand-xl navbar-light fixed-top navbar-style"
+      id="siteNav"
+    >
+      <div class="container-fluid">
+        <a href="../index.html" class="brand" aria-label="Finesse">
+          <img
+            class="brand-logo"
+            src="../IMAGES/web/logo-small.png"
+            alt="Finesse Company Logo"
+            width="37"
+            height="52"
+          />
+          <span class="brand-text">
+            <span class="finesse-name">Finesse</span>
+            <span class="finesse-name-detail" data-i18n="brand.detail"
+              >Research &amp; Management Consultancy Services Company</span
+            >
+          </span>
+        </a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#mynavbar"
+          aria-controls="mynavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          data-i18n-al="nav.toggle"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link" data-i18n="nav.home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link" data-i18n="nav.about"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="services.html" class="nav-link" data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a href="projects.html" class="nav-link" data-i18n="nav.projects"
+                >Projects</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="goals-objectives.html"
+                class="nav-link"
+                data-i18n="nav.goals"
+                >Goal &amp; Objectives</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <div class="nav-tools">
+            <!-- language switcher: English (default), Persian, Pashto, Arabic -->
+            <div class="lang-switch" id="langSwitch">
+              <button
+                type="button"
+                class="lang-btn"
+                id="langBtn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-label="Choose language"
+                data-i18n-al="lang.label"
+              >
+                <i class="fa-solid fa-globe"></i>
+                <span id="langCurrent">EN</span>
+                <i class="fa-solid fa-chevron-down lang-caret"></i>
+              </button>
+              <ul class="lang-menu" role="listbox" aria-label="Language">
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option selected"
+                    role="option"
+                    aria-selected="true"
+                    data-lang="en"
+                    lang="en"
+                  >
+                    English <small>EN</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="fa"
+                    lang="fa"
+                  >
+                    فارسی <small>FA</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="ps"
+                    lang="ps"
+                  >
+                    پښتو <small>PS</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="ar"
+                    lang="ar"
+                  >
+                    العربية <small>AR</small>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <!-- Theme Toggle Button -->
+            <div class="theme-toggle-wrapper">
+              <div class="custom-control custom-switch theme-switch">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="themeSwitch"
+                  aria-label="Switch between light and dark themes"
+                  data-i18n-al="theme.label"
+                />
+                <label class="custom-control-label" for="themeSwitch">
+                  <span class="theme-icon sun-icon"
+                    ><i class="fas fa-sun"></i
+                  ></span>
+                  <span class="theme-icon moon-icon"
+                    ><i class="fas fa-moon"></i
+                  ></span>
+                </label>
+              </div>
+            </div>
+            <a
+              href="contact.html"
+              class="btn btn-primary header-btn"
+              data-i18n="nav.cta"
+              >Get in Touch</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end of navbar -->
+
+    <main>
+      <!-- ===== 1. 3D CAROUSEL (replaces the page banner) ===== -->
+      <section
+        class="pc"
+        id="projects-carousel"
+        aria-roledescription="carousel"
+        aria-label="Featured projects"
+        data-i18n-al="pc.label"
+      >
+        <div class="pc-bg" aria-hidden="true"><i></i><i></i></div>
+        <span class="pc-orb o1" aria-hidden="true"></span>
+        <span class="pc-orb o2" aria-hidden="true"></span>
+        <span class="sr-only" data-pc-go data-i18n="pc.go">Go to project</span>
+
+        <div class="container">
+          <header class="pc-head">
+            <span class="pc-eyebrow" data-i18n="pc.eyebrow">Our Work</span>
+            <h1 class="pc-title" data-i18n="pc.title">
+              Projects that make an impact
+            </h1>
+            <p class="pc-sub" data-i18n="pc.sub">
+              Explore a selection of our recent work.
+            </p>
+          </header>
+
+          <div class="pc-stage" tabindex="0">
+            <ul class="pc-track">
+              <!-- ONE PROJECT = ONE <li>. Copy a whole <li> to add a project. -->
+              <li class="pc-slide">
+                <article class="pc-card">
+                  <div class="pc-media">
+                    <img
+                      src="../IMAGES/web/build.jpg"
+                      alt=""
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+                  <span class="pc-index" aria-hidden="true">01</span>
+                  <div class="pc-info">
+                    <span class="pc-cat" data-i18n="pc.s1.cat">Research</span>
+                    <h2 class="pc-name" data-i18n="pc.s1.title">
+                      Community Needs Study
+                    </h2>
+                    <p class="pc-text" data-i18n="pc.s1.text">
+                      A field study that gathered evidence from communities to
+                      guide program design.
+                    </p>
+                    <a href="#pj-1" class="pc-btn"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </article>
+              </li>
+              <li class="pc-slide">
+                <article class="pc-card">
+                  <div class="pc-media">
+                    <img
+                      src="../IMAGES/web/services.jpg"
+                      alt=""
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+                  <span class="pc-index" aria-hidden="true">02</span>
+                  <div class="pc-info">
+                    <span class="pc-cat" data-i18n="pc.s2.cat"
+                      >Monitoring &amp; Evaluation</span
+                    >
+                    <h2 class="pc-name" data-i18n="pc.s2.title">
+                      Program Impact Evaluation
+                    </h2>
+                    <p class="pc-text" data-i18n="pc.s2.text">
+                      Measuring results and lessons learned to improve long-term
+                      impact.
+                    </p>
+                    <a href="#pj-2" class="pc-btn"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </article>
+              </li>
+              <li class="pc-slide">
+                <article class="pc-card">
+                  <div class="pc-media">
+                    <img
+                      src="../IMAGES/web/goal.jpg"
+                      alt=""
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+                  <span class="pc-index" aria-hidden="true">03</span>
+                  <div class="pc-info">
+                    <span class="pc-cat" data-i18n="pc.s3.cat"
+                      >Capacity Building</span
+                    >
+                    <h2 class="pc-name" data-i18n="pc.s3.title">
+                      Staff Training Program
+                    </h2>
+                    <p class="pc-text" data-i18n="pc.s3.text">
+                      Hands-on workshops that strengthen skills inside partner
+                      organizations.
+                    </p>
+                    <a href="#pj-3" class="pc-btn"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </article>
+              </li>
+              <li class="pc-slide">
+                <article class="pc-card">
+                  <div class="pc-media">
+                    <img
+                      src="../IMAGES/web/team.jpg"
+                      alt=""
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+                  <span class="pc-index" aria-hidden="true">04</span>
+                  <div class="pc-info">
+                    <span class="pc-cat" data-i18n="pc.s4.cat"
+                      >Management Consulting</span
+                    >
+                    <h2 class="pc-name" data-i18n="pc.s4.title">
+                      Organizational Review
+                    </h2>
+                    <p class="pc-text" data-i18n="pc.s4.text">
+                      A structured review of systems, roles, and processes to
+                      improve performance.
+                    </p>
+                    <a href="#pj-4" class="pc-btn"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </article>
+              </li>
+              <li class="pc-slide">
+                <article class="pc-card">
+                  <div class="pc-media">
+                    <img
+                      src="../IMAGES/web/contact.jpg"
+                      alt=""
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </div>
+                  <span class="pc-index" aria-hidden="true">05</span>
+                  <div class="pc-info">
+                    <span class="pc-cat" data-i18n="pc.s5.cat">Strategy</span>
+                    <h2 class="pc-name" data-i18n="pc.s5.title">
+                      Strategic Planning Support
+                    </h2>
+                    <p class="pc-text" data-i18n="pc.s5.text">
+                      Helping an institution turn its goals into a clear,
+                      practical action plan.
+                    </p>
+                    <a href="#pj-5" class="pc-btn"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pc-ui">
+            <button
+              type="button"
+              class="pc-arrow pc-prev"
+              aria-label="Previous project"
+              data-i18n-al="pc.prev"
+            >
+              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <div class="pc-dots" role="group"></div>
+            <span class="pc-count" aria-hidden="true"><b>01</b> / 05</span>
+            <button
+              type="button"
+              class="pc-arrow pc-next"
+              aria-label="Next project"
+              data-i18n-al="pc.next"
+            >
+              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="pc-toggle"
+              aria-label="Pause slideshow"
+              aria-pressed="false"
+            >
+              <i class="fa-solid fa-pause" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="pc-progress" aria-hidden="true"><i></i></div>
+        </div>
+      </section>
+
+      <!-- ===== 2. PROJECT CARDS ===== -->
+      <section class="section pj-section" id="projects">
+        <div class="container">
+          <div class="pj-head reveal">
+            <span class="eyebrow" data-i18n="pj.eyebrow">Portfolio</span>
+            <h2 class="section-title" data-i18n="pj.title">Our Projects</h2>
+            <p class="pj-lead" data-i18n="pj.lead">
+              Hover over a project (or tap it on a phone) to see its full
+              details.
+            </p>
+          </div>
+
+          <div
+            class="pj-filters"
+            role="group"
+            aria-label="Filter projects"
+            data-i18n-al="pj.filter"
+          >
+            <button
+              type="button"
+              class="pj-chip is-on"
+              data-filter="all"
+              aria-pressed="true"
+              data-i18n="pj.all"
+            >
+              All
+            </button>
+            <button
+              type="button"
+              class="pj-chip"
+              data-filter="research"
+              aria-pressed="false"
+              data-i18n="pc.s1.cat"
+            >
+              Research
+            </button>
+            <button
+              type="button"
+              class="pj-chip"
+              data-filter="monitoring"
+              aria-pressed="false"
+              data-i18n="pc.s2.cat"
+            >
+              Monitoring &amp; Evaluation
+            </button>
+            <button
+              type="button"
+              class="pj-chip"
+              data-filter="capacity"
+              aria-pressed="false"
+              data-i18n="pc.s3.cat"
+            >
+              Capacity Building
+            </button>
+            <button
+              type="button"
+              class="pj-chip"
+              data-filter="consulting"
+              aria-pressed="false"
+              data-i18n="pc.s4.cat"
+            >
+              Management Consulting
+            </button>
+            <button
+              type="button"
+              class="pj-chip"
+              data-filter="strategy"
+              aria-pressed="false"
+              data-i18n="pc.s5.cat"
+            >
+              Strategy
+            </button>
+          </div>
+
+          <!-- SAMPLE PROJECTS: replace the photo, title, text, year, duration and client with the real ones -->
+          <div class="pj-grid">
+            <article
+              class="pj-card reveal"
+              id="pj-1"
+              data-cat="research"
+              data-tilt
+              data-tilt-max="7"
+            >
+              <div class="pj-media">
+                <img
+                  src="../IMAGES/web/build.jpg"
+                  alt=""
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <span class="pj-no" aria-hidden="true">01</span>
+              <div class="pj-info">
+                <span class="pj-cat" data-i18n="pc.s1.cat">Research</span>
+                <h3 class="pj-name" data-i18n="pc.s1.title">
+                  Community Needs Study
+                </h3>
+                <div class="pj-more">
+                  <div>
+                    <p class="pj-desc" data-i18n="pj.p1.desc">
+                      A field study that collected evidence directly from
+                      communities. The findings shaped program priorities,
+                      targeting, and the design of the next phase.
+                    </p>
+                    <ul class="pj-meta">
+                      <li>
+                        <i class="fa-regular fa-calendar" aria-hidden="true"></i
+                        ><small data-i18n="pj.year">Year</small><b>2025</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-clock" aria-hidden="true"></i
+                        ><small data-i18n="pj.duration">Duration</small
+                        ><b data-i18n="pj.d6">6 months</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-building" aria-hidden="true"></i
+                        ><small data-i18n="pj.client">Client</small
+                        ><b data-i18n="pj.c.dev">Development partner</b>
+                      </li>
+                    </ul>
+                    <a href="#pj-1" class="pj-go"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="pj-card reveal"
+              id="pj-2"
+              data-cat="monitoring"
+              data-tilt
+              data-tilt-max="7"
+            >
+              <div class="pj-media">
+                <img
+                  src="../IMAGES/web/services.jpg"
+                  alt=""
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <span class="pj-no" aria-hidden="true">02</span>
+              <div class="pj-info">
+                <span class="pj-cat" data-i18n="pc.s2.cat"
+                  >Monitoring &amp; Evaluation</span
+                >
+                <h3 class="pj-name" data-i18n="pc.s2.title">
+                  Program Impact Evaluation
+                </h3>
+                <div class="pj-more">
+                  <div>
+                    <p class="pj-desc" data-i18n="pj.p2.desc">
+                      An independent evaluation of results against the original
+                      goals. It documents what worked, what did not, and lessons
+                      for future programs.
+                    </p>
+                    <ul class="pj-meta">
+                      <li>
+                        <i class="fa-regular fa-calendar" aria-hidden="true"></i
+                        ><small data-i18n="pj.year">Year</small><b>2025</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-clock" aria-hidden="true"></i
+                        ><small data-i18n="pj.duration">Duration</small
+                        ><b data-i18n="pj.d9">9 months</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-building" aria-hidden="true"></i
+                        ><small data-i18n="pj.client">Client</small
+                        ><b data-i18n="pj.c.ngo">NGO</b>
+                      </li>
+                    </ul>
+                    <a href="#pj-2" class="pj-go"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="pj-card reveal"
+              id="pj-3"
+              data-cat="capacity"
+              data-tilt
+              data-tilt-max="7"
+            >
+              <div class="pj-media">
+                <img
+                  src="../IMAGES/web/goal.jpg"
+                  alt=""
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <span class="pj-no" aria-hidden="true">03</span>
+              <div class="pj-info">
+                <span class="pj-cat" data-i18n="pc.s3.cat"
+                  >Capacity Building</span
+                >
+                <h3 class="pj-name" data-i18n="pc.s3.title">
+                  Staff Training Program
+                </h3>
+                <div class="pj-more">
+                  <div>
+                    <p class="pj-desc" data-i18n="pj.p3.desc">
+                      A series of practical workshops that build real skills
+                      inside partner organizations, with follow-up support after
+                      each session.
+                    </p>
+                    <ul class="pj-meta">
+                      <li>
+                        <i class="fa-regular fa-calendar" aria-hidden="true"></i
+                        ><small data-i18n="pj.year">Year</small><b>2024</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-clock" aria-hidden="true"></i
+                        ><small data-i18n="pj.duration">Duration</small
+                        ><b data-i18n="pj.d3">3 months</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-building" aria-hidden="true"></i
+                        ><small data-i18n="pj.client">Client</small
+                        ><b data-i18n="pj.c.gov">Government</b>
+                      </li>
+                    </ul>
+                    <a href="#pj-3" class="pj-go"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="pj-card reveal"
+              id="pj-4"
+              data-cat="consulting"
+              data-tilt
+              data-tilt-max="7"
+            >
+              <div class="pj-media">
+                <img
+                  src="../IMAGES/web/team.jpg"
+                  alt=""
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <span class="pj-no" aria-hidden="true">04</span>
+              <div class="pj-info">
+                <span class="pj-cat" data-i18n="pc.s4.cat"
+                  >Management Consulting</span
+                >
+                <h3 class="pj-name" data-i18n="pc.s4.title">
+                  Organizational Review
+                </h3>
+                <div class="pj-more">
+                  <div>
+                    <p class="pj-desc" data-i18n="pj.p4.desc">
+                      A structured review of systems, roles, and processes,
+                      ending with clear and practical recommendations to improve
+                      performance.
+                    </p>
+                    <ul class="pj-meta">
+                      <li>
+                        <i class="fa-regular fa-calendar" aria-hidden="true"></i
+                        ><small data-i18n="pj.year">Year</small><b>2024</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-clock" aria-hidden="true"></i
+                        ><small data-i18n="pj.duration">Duration</small
+                        ><b data-i18n="pj.d6">6 months</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-building" aria-hidden="true"></i
+                        ><small data-i18n="pj.client">Client</small
+                        ><b data-i18n="pj.c.biz">Private sector</b>
+                      </li>
+                    </ul>
+                    <a href="#pj-4" class="pj-go"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="pj-card reveal"
+              id="pj-5"
+              data-cat="strategy"
+              data-tilt
+              data-tilt-max="7"
+            >
+              <div class="pj-media">
+                <img
+                  src="../IMAGES/web/contact.jpg"
+                  alt=""
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <span class="pj-no" aria-hidden="true">05</span>
+              <div class="pj-info">
+                <span class="pj-cat" data-i18n="pc.s5.cat">Strategy</span>
+                <h3 class="pj-name" data-i18n="pc.s5.title">
+                  Strategic Planning Support
+                </h3>
+                <div class="pj-more">
+                  <div>
+                    <p class="pj-desc" data-i18n="pj.p5.desc">
+                      Support for an institution to turn its goals into a clear
+                      multi-year plan, with priorities, responsibilities, and
+                      measurable targets.
+                    </p>
+                    <ul class="pj-meta">
+                      <li>
+                        <i class="fa-regular fa-calendar" aria-hidden="true"></i
+                        ><small data-i18n="pj.year">Year</small><b>2023</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-clock" aria-hidden="true"></i
+                        ><small data-i18n="pj.duration">Duration</small
+                        ><b data-i18n="pj.d12">12 months</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-building" aria-hidden="true"></i
+                        ><small data-i18n="pj.client">Client</small
+                        ><b data-i18n="pj.c.gov">Government</b>
+                      </li>
+                    </ul>
+                    <a href="#pj-5" class="pj-go"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article
+              class="pj-card reveal"
+              id="pj-6"
+              data-cat="research"
+              data-tilt
+              data-tilt-max="7"
+            >
+              <div class="pj-media">
+                <img
+                  src="../IMAGES/web/login-back.jpg"
+                  alt=""
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <span class="pj-no" aria-hidden="true">06</span>
+              <div class="pj-info">
+                <span class="pj-cat" data-i18n="pc.s1.cat">Research</span>
+                <h3 class="pj-name" data-i18n="pj.p6.title">Baseline Survey</h3>
+                <div class="pj-more">
+                  <div>
+                    <p class="pj-desc" data-i18n="pj.p6.desc">
+                      A baseline survey that sets the starting point for a
+                      program, so progress can be measured honestly over time.
+                    </p>
+                    <ul class="pj-meta">
+                      <li>
+                        <i class="fa-regular fa-calendar" aria-hidden="true"></i
+                        ><small data-i18n="pj.year">Year</small><b>2023</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-clock" aria-hidden="true"></i
+                        ><small data-i18n="pj.duration">Duration</small
+                        ><b data-i18n="pj.d3">3 months</b>
+                      </li>
+                      <li>
+                        <i class="fa-regular fa-building" aria-hidden="true"></i
+                        ><small data-i18n="pj.client">Client</small
+                        ><b data-i18n="pj.c.ngo">NGO</b>
+                      </li>
+                    </ul>
+                    <a href="#pj-6" class="pj-go"
+                      ><span data-i18n="pc.view">View project</span
+                      ><i
+                        class="fa-solid fa-arrow-right-long"
+                        aria-hidden="true"
+                      ></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 3. CALL TO ACTION ===== -->
+      <section class="ad-section">
+        <div class="container reveal">
+          <h2 data-i18n="pj.cta.title">
+            Have a project in mind? Let&rsquo;s build it together.
+          </h2>
+          <a
+            href="contact.html"
+            class="btn btn-light btn-lg mt-3"
+            data-i18n="nav.cta"
+            >Get in Touch</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer-style">
+      <div class="container">
+        <div class="footer-grid-style">
+          <div class="footer-brand">
+            <a href="../index.html" class="logo-chip">
+              <img src="../IMAGES/web/logo.png" alt="Finesse Company Logo" />
+            </a>
+            <p class="footer-title">
+              <strong>FINESSE</strong>
+              <span data-i18n="brand.detail"
+                >Research &amp; Management Consultancy Services Company</span
+              >
+            </p>
+          </div>
+          <div>
+            <h4 data-i18n="footer.links">Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+              <li><a href="about.html" data-i18n="nav.about">About</a></li>
+              <li>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+              </li>
+              <li>
+                <a href="projects.html" data-i18n="nav.projects">Projects</a>
+              </li>
+              <li>
+                <a href="goals-objectives.html" data-i18n="nav.goals"
+                  >Goal &amp; Objectives</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" data-i18n="nav.contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="contact-info">
+            <h4 data-i18n="footer.contact">Contact Info</h4>
+            <div class="ci-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span data-i18n="footer.loc">Kabul, Afghanistan</span>
+            </div>
+            <a href="mailto:finesse.researchmc@gmail.com" class="ci-row">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="ltr-text">finesse.researchmc@gmail.com</span>
+            </a>
+            <a href="tel:+93786009699" class="ci-row">
+              <i class="fa-solid fa-phone"></i>
+              <span class="ltr-text">+93 78 600 9699</span>
+            </a>
+            <div class="social mt-4">
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open Facebook"
+                data-i18n-tt="social.fb"
+                aria-label="Facebook"
+                ><img src="../IMAGES/icnos/facebook.png" alt=""
+              /></a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open LinkedIn"
+                data-i18n-tt="social.li"
+                aria-label="LinkedIn"
+                ><img src="../IMAGES/icnos/linkedin.png" alt=""
+              /></a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open WhatsApp"
+                data-i18n-tt="social.wa"
+                aria-label="WhatsApp"
+                ><img src="../IMAGES/icnos/whatsapp.png" alt=""
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; <span id="year">2026</span> Finesse.
+          <span data-i18n="footer.rights">All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+    <!-- end of footer -->
+
+    <button
+      type="button"
+      id="toTop"
+      class="to-top"
+      aria-label="Back to top"
+      data-i18n-al="totop.label"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+  </body>
+</html>
