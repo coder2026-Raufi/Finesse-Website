@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="meta.services">Our Services | Finesse</title>
-    <meta name="description" content="Research & analysis, monitoring & evaluation, and capacity development & training services from Finesse." />
+    <meta
+      name="description"
+      content="Research & analysis, monitoring & evaluation, and capacity development & training services from Finesse."
+    />
     <link rel="icon" type="image/png" href="../IMAGES/web/logo-small.png" />
     <script>
       /* runs before the page paints: enables animations and applies the saved language direction */
@@ -37,10 +40,19 @@
     <div id="scrollProgress" aria-hidden="true"></div>
 
     <!-- navbar -->
-    <header class="navbar navbar-expand-xl navbar-light fixed-top navbar-style" id="siteNav">
+    <header
+      class="navbar navbar-expand-xl navbar-light fixed-top navbar-style"
+      id="siteNav"
+    >
       <div class="container-fluid">
         <a href="../index.html" class="brand" aria-label="Finesse">
-          <img class="brand-logo" src="../IMAGES/web/logo-small.png" alt="Finesse Company Logo" width="37" height="52" />
+          <img
+            class="brand-logo"
+            src="../IMAGES/web/logo-small.png"
+            alt="Finesse Company Logo"
+            width="37"
+            height="52"
+          />
           <span class="brand-text">
             <span class="finesse-name">Finesse</span>
             <span class="finesse-name-detail" data-i18n="brand.detail"
@@ -63,24 +75,39 @@
 
         <div class="collapse navbar-collapse" id="mynavbar">
           <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
-            <a href="../index.html" class="nav-link" data-i18n="nav.home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="about.html" class="nav-link" data-i18n="nav.about">About</a>
-          </li>
-          <li class="nav-item active">
-            <a href="services.html" class="nav-link" data-i18n="nav.services">Services</a>
-          </li>
-           <li class="nav-item">
-            <a href="projects.html" class="nav-link" data-i18n="nav.projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a href="goals-objectives.html" class="nav-link" data-i18n="nav.goals">Goal &amp; Objectives</a>
-          </li>
-          <li class="nav-item">
-            <a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a>
-          </li>
+            <li class="nav-item">
+              <a href="../index.html" class="nav-link" data-i18n="nav.home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link" data-i18n="nav.about"
+                >About</a
+              >
+            </li>
+            <li class="nav-item active">
+              <a href="services.html" class="nav-link" data-i18n="nav.services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="projects.html" class="nav-link" data-i18n="nav.projects"
+                >Projects</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="goals-objectives.html"
+                class="nav-link"
+                data-i18n="nav.goals"
+                >Goal &amp; Objectives</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
           </ul>
           <div class="nav-tools">
             <!-- language switcher: English (default), Persian, Pashto, Arabic -->
@@ -99,10 +126,54 @@
                 <i class="fa-solid fa-chevron-down lang-caret"></i>
               </button>
               <ul class="lang-menu" role="listbox" aria-label="Language">
-                <li role="presentation"><button type="button" class="lang-option selected" role="option" aria-selected="true" data-lang="en" lang="en">English <small>EN</small></button></li>
-                <li role="presentation"><button type="button" class="lang-option" role="option" aria-selected="false" data-lang="fa" lang="fa">فارسی <small>FA</small></button></li>
-                <li role="presentation"><button type="button" class="lang-option" role="option" aria-selected="false" data-lang="ps" lang="ps">پښتو <small>PS</small></button></li>
-                <li role="presentation"><button type="button" class="lang-option" role="option" aria-selected="false" data-lang="ar" lang="ar">العربية <small>AR</small></button></li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option selected"
+                    role="option"
+                    aria-selected="true"
+                    data-lang="en"
+                    lang="en"
+                  >
+                    English <small>EN</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="fa"
+                    lang="fa"
+                  >
+                    فارسی <small>FA</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="ps"
+                    lang="ps"
+                  >
+                    پښتو <small>PS</small>
+                  </button>
+                </li>
+                <li role="presentation">
+                  <button
+                    type="button"
+                    class="lang-option"
+                    role="option"
+                    aria-selected="false"
+                    data-lang="ar"
+                    lang="ar"
+                  >
+                    العربية <small>AR</small>
+                  </button>
+                </li>
               </ul>
             </div>
             <!-- Theme Toggle Button -->
@@ -116,12 +187,21 @@
                   data-i18n-al="theme.label"
                 />
                 <label class="custom-control-label" for="themeSwitch">
-                  <span class="theme-icon sun-icon"><i class="fas fa-sun"></i></span>
-                  <span class="theme-icon moon-icon"><i class="fas fa-moon"></i></span>
+                  <span class="theme-icon sun-icon"
+                    ><i class="fas fa-sun"></i
+                  ></span>
+                  <span class="theme-icon moon-icon"
+                    ><i class="fas fa-moon"></i
+                  ></span>
                 </label>
               </div>
             </div>
-            <a href="contact.html" class="btn btn-primary header-btn" data-i18n="nav.cta">Get in Touch</a>
+            <a
+              href="contact.html"
+              class="btn btn-primary header-btn"
+              data-i18n="nav.cta"
+              >Get in Touch</a
+            >
           </div>
         </div>
       </div>
@@ -132,11 +212,23 @@
       <section class="services-banner">
         <div class="container banner-container">
           <h1 class="page-title" data-i18n="svcp.title">Our Services</h1>
-        <p class="banner-lead" data-i18n="svcp.intro">We provide professional research, management consultancy, monitoring and evaluation, and capacity-building services to help organizations make informed decisions, improve performance, and achieve sustainable results.</p>
+          <p class="banner-lead" data-i18n="svcp.intro">
+            We provide professional research, management consultancy, monitoring
+            and evaluation, and capacity-building services to help organizations
+            make informed decisions, improve performance, and achieve
+            sustainable results.
+          </p>
           <nav class="about-links" aria-label="breadcrumb">
-            <a href="../index.html" class="nav-link" data-i18n="nav.home">Home</a>
+            <a href="../index.html" class="nav-link" data-i18n="nav.home"
+              >Home</a
+            >
             <span>/</span>
-            <a href="services.html" class="nav-link active" data-i18n="svcp.title">Our Services</a>
+            <a
+              href="services.html"
+              class="nav-link active"
+              data-i18n="svcp.title"
+              >Our Services</a
+            >
           </nav>
         </div>
       </section>
@@ -146,41 +238,157 @@
         <div class="container">
           <div class="reveal">
             <h2 class="section-title" data-i18n="offer.title">What We Offer</h2>
-            <p class="text-muted lead-p" data-i18n="offer.text">At Finesse, we deliver practical, evidence-based solutions tailored to the needs of organizations, development partners, and government institutions. Our services combine research, strategic guidance, performance evaluation, and capacity development to create meaningful and lasting impact.</p>
+            <p class="text-muted lead-p" data-i18n="offer.text">
+              At Finesse, we deliver practical, evidence-based solutions
+              tailored to the needs of organizations, development partners, and
+              government institutions. Our services combine research, strategic
+              guidance, performance evaluation, and capacity development to
+              create meaningful and lasting impact.
+            </p>
           </div>
           <div class="grid-style mt-5">
-          <div class="service-cart-lg card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><img src="../IMAGES/icnos/search.png" alt="" /></span>
-            <h6 class="pop-2" data-i18n="svc.research">Research &amp; Analysis</h6>
-            <ul class="service-list pop-3">
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="r1">Market and socio-economic research</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="r2">Policy research and analysis</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="r3">Data collection (quantitative &amp; qualitative)</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="r4">Survey design and implementation</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="r5">Data analysis and reporting</span></li>
-            </ul>
-          </div>
-          <div class="service-cart-lg card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><img src="../IMAGES/icnos/evaluation.png" alt="" /></span>
-            <h6 class="pop-2" data-i18n="svc.me">Monitoring &amp; Evaluation</h6>
-            <ul class="service-list pop-3">
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="m1">Design of M&amp;E framework and system</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="m2">Baseline, midline and endline evaluation</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="m3">Indicator development and performance monitoring</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="m4">Impact assessment</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="m5">Evaluation reports and learning documentation</span></li>
-            </ul>
-          </div>
-          <div class="service-cart-lg card3d reveal" data-tilt>
-            <span class="icon-bubble pop"><img src="../IMAGES/icnos/capacity.png" alt="" /></span>
-            <h6 class="pop-2" data-i18n="svc.cap">Capacity Development &amp; Training</h6>
-            <ul class="service-list pop-3">
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="c1">Training needs assessment (TNA)</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="c2">Curriculum and training material development</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="c3">Workshops and seminars</span></li>
-              <li><img src="../IMAGES/icnos/dashed-line.png" alt="" class="into-cart-icons" /><span data-i18n="c4">Technical training programs</span></li>
-            </ul>
-          </div>
+            <div class="service-cart-lg card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><img src="../IMAGES/icnos/search.png" alt=""
+              /></span>
+              <h6 class="pop-2" data-i18n="svc.research">
+                Research &amp; Analysis
+              </h6>
+              <ul class="service-list pop-3">
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="r1"
+                    >Market and socio-economic research</span
+                  >
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="r2">Policy research and analysis</span>
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="r3"
+                    >Data collection (quantitative &amp; qualitative)</span
+                  >
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="r4">Survey design and implementation</span>
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="r5">Data analysis and reporting</span>
+                </li>
+              </ul>
+            </div>
+            <div class="service-cart-lg card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><img src="../IMAGES/icnos/evaluation.png" alt=""
+              /></span>
+              <h6 class="pop-2" data-i18n="svc.me">
+                Monitoring &amp; Evaluation
+              </h6>
+              <ul class="service-list pop-3">
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="m1"
+                    >Design of M&amp;E framework and system</span
+                  >
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="m2"
+                    >Baseline, midline and endline evaluation</span
+                  >
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="m3"
+                    >Indicator development and performance monitoring</span
+                  >
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="m4">Impact assessment</span>
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="m5"
+                    >Evaluation reports and learning documentation</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="service-cart-lg card3d reveal" data-tilt>
+              <span class="icon-bubble pop"
+                ><img src="../IMAGES/icnos/capacity.png" alt=""
+              /></span>
+              <h6 class="pop-2" data-i18n="svc.cap">
+                Capacity Development &amp; Training
+              </h6>
+              <ul class="service-list pop-3">
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="c1">Training needs assessment (TNA)</span>
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="c2"
+                    >Curriculum and training material development</span
+                  >
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="c3">Workshops and seminars</span>
+                </li>
+                <li>
+                  <img
+                    src="../IMAGES/icnos/dashed-line.png"
+                    alt=""
+                    class="into-cart-icons"
+                  /><span data-i18n="c4">Technical training programs</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -192,7 +400,12 @@
             <span class="grad" data-i18n="cta.2">Stronger Institutions.</span>
             <span class="grad" data-i18n="cta.3">Greater Impact.</span>
           </h2>
-          <a href="contact.html" class="btn btn-primary btn-lg mt-5 px-5" data-i18n="nav.cta">Get in Touch</a>
+          <a
+            href="contact.html"
+            class="btn btn-primary btn-lg mt-5 px-5"
+            data-i18n="nav.cta"
+            >Get in Touch</a
+          >
         </div>
       </section>
     </main>
@@ -207,17 +420,30 @@
             </a>
             <p class="footer-title">
               <strong>FINESSE</strong>
-              <span data-i18n="brand.detail">Research &amp; Management Consultancy Services Company</span>
+              <span data-i18n="brand.detail"
+                >Research &amp; Management Consultancy Services Company</span
+              >
             </p>
           </div>
           <div>
             <h4 data-i18n="footer.links">Quick Links</h4>
             <ul class="footer-links">
-            <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
-            <li><a href="about.html" data-i18n="nav.about">About</a></li>
-            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
-            <li><a href="goals-objectives.html" data-i18n="nav.goals">Goal &amp; Objectives</a></li>
-            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+              <li><a href="../index.html" data-i18n="nav.home">Home</a></li>
+              <li><a href="about.html" data-i18n="nav.about">About</a></li>
+              <li>
+                <a href="services.html" data-i18n="nav.services">Services</a>
+              </li>
+              <li>
+                <a href="projects.html" data-i18n="nav.projects">Projects</a>
+              </li>
+              <li>
+                <a href="goals-objectives.html" data-i18n="nav.goals"
+                  >Goal &amp; Objectives</a
+                >
+              </li>
+              <li>
+                <a href="contact.html" data-i18n="nav.contact">Contact</a>
+              </li>
             </ul>
           </div>
           <div class="contact-info">
@@ -235,9 +461,33 @@
               <span class="ltr-text">+93 78 600 9699</span>
             </a>
             <div class="social mt-4">
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Open Facebook" data-i18n-tt="social.fb" aria-label="Facebook"><img src="../IMAGES/icnos/facebook.png" alt="" /></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Open LinkedIn" data-i18n-tt="social.li" aria-label="LinkedIn"><img src="../IMAGES/icnos/linkedin.png" alt="" /></a>
-              <a href="#" data-toggle="tooltip" data-placement="top" title="Open WhatsApp" data-i18n-tt="social.wa" aria-label="WhatsApp"><img src="../IMAGES/icnos/whatsapp.png" alt="" /></a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open Facebook"
+                data-i18n-tt="social.fb"
+                aria-label="Facebook"
+                ><img src="../IMAGES/icnos/facebook.png" alt=""
+              /></a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open LinkedIn"
+                data-i18n-tt="social.li"
+                aria-label="LinkedIn"
+                ><img src="../IMAGES/icnos/linkedin.png" alt=""
+              /></a>
+              <a
+                href="#"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Open WhatsApp"
+                data-i18n-tt="social.wa"
+                aria-label="WhatsApp"
+                ><img src="../IMAGES/icnos/whatsapp.png" alt=""
+              /></a>
             </div>
           </div>
         </div>
@@ -249,7 +499,13 @@
     </footer>
     <!-- end of footer -->
 
-    <button type="button" id="toTop" class="to-top" aria-label="Back to top" data-i18n-al="totop.label">
+    <button
+      type="button"
+      id="toTop"
+      class="to-top"
+      aria-label="Back to top"
+      data-i18n-al="totop.label"
+    >
       <i class="fa-solid fa-arrow-up"></i>
     </button>
   </body>
