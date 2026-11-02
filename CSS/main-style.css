@@ -545,7 +545,7 @@ body:not([data-theme="dark"]) .lang-menu {
   position: absolute;
   top: 4px;
   inset-inline-start: 4px;
-  left: auto;
+  left: 3px;
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -560,7 +560,7 @@ body:not([data-theme="dark"]) .lang-menu {
 }
 .theme-icon {
   position: absolute;
-  top: 8px;
+  top: 9px;
   z-index: 1;
   font-size: 15px;
   line-height: 18px;
