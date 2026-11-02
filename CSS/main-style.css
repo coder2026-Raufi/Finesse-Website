@@ -903,7 +903,6 @@ html[dir="rtl"] .banner-title {
     inset-inline-end: 0;
   }
   .hero-stage {
-    overflow: hidden;
     padding-bottom: 1rem;
   }
 }
