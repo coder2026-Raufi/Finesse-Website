@@ -1,0 +1,25 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Message from {{ m.name }}{% endblock %}
+{% block content %}
+<p><a href="{% url 'dashboard:messages' %}">← All messages</a></p>
+<div class="card">
+  <div class="top"><h1>{{ m.get_subject_display }}</h1><span class="tag {{ m.status }}">{{ m.get_status_display }}</span></div>
+  <dl style="margin-top:12px">
+    <dt>From</dt><dd>{{ m.name }}</dd>
+    <dt>Email</dt><dd><a href="mailto:{{ m.email }}">{{ m.email }}</a></dd>
+    <dt>Received</dt><dd>{{ m.created_at|date:"d M Y, H:i" }} (Kabul time)</dd>
+    <dt>Language</dt><dd>{{ m.language|upper }}</dd>
+    <dt>Team email</dt><dd>{% if m.notified %}Sent to the company inbox{% else %}<span style="color:var(--warn)">Not sent</span>{% if m.notify_error %} — {{ m.notify_error|truncatechars:120 }}{% endif %}{% endif %}</dd>
+  </dl>
+  <div class="msgbody" dir="auto">{{ m.message }}</div>
+  <div class="row">
+    <a class="btn" href="mailto:{{ m.email }}?subject={{ 'Re: Your message to Finesse'|urlencode }}">Reply by email</a>
+    {% for value, label in statuses %}{% if value != m.status %}
+    <form class="inline" method="post" action="{% url 'dashboard:message_status' m.pk %}">{% csrf_token %}
+      <input type="hidden" name="status" value="{{ value }}"><input type="hidden" name="next" value="{% url 'dashboard:message' m.pk %}">
+      <button class="btn ghost" type="submit">Mark as {{ label|lower }}</button></form>{% endif %}{% endfor %}
+    <form class="inline" method="post" action="{% url 'dashboard:message_delete' m.pk %}" onsubmit="return confirm('Delete this message forever?')">{% csrf_token %}
+      <button class="btn danger" type="submit">Delete</button></form>
+  </div>
+</div>
+{% endblock %}

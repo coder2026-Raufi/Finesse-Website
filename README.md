@@ -1,67 +1,32 @@
+# Finesse Research & Management Consulting Services Website
 
-# My Website Project
+A multilingual, responsive company website with a Django backend and staff dashboard.
 
-## 📌 Project Overview
+## Technology
 
-This project is a modern, responsive website developed to demonstrate my front-end development skills. It focuses on creating a user-friendly interface, clean design, and a smooth browsing experience across different devices.
+- Frontend: HTML5, CSS3, JavaScript, Bootstrap 4, jQuery
+- Backend: Python, Django
+- Database: SQLite for local development; optional PostgreSQL for production
+- Media: Pillow image processing
+- Deployment: Gunicorn + WhiteNoise (hosting configuration required)
 
-## ✨ Features
+## Main functionality
 
-- Responsive design for desktop, tablet, and mobile
-- Modern and user-friendly interface
-- Organized and maintainable code
-- Interactive website components
-- Optimized layout and styling
+- Responsive corporate website and multilingual content (English, Dari/Persian, Pashto and Arabic)
+- Dynamic projects listing loaded from the backend database
+- Contact form API with server-side validation, spam controls and email notification
+- Staff dashboard for managing project entries and contact inquiries
+- Project photo upload and publish/unpublish controls
+- Admin statistics and inquiry status workflow
 
-## 🛠️ Technologies Used
+## Start locally
 
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap
+See [`backend/BACKEND.md`](backend/BACKEND.md) for setup and deployment instructions.
 
-## 📂 Project Structure
+## Technical review
 
-```text
-project/
-├── index.html
-├── css/
-├── js/
-├── images/
-└── README.md
-```
+See [`TECHNICAL_REVIEW_AND_HANDOFF.md`](TECHNICAL_REVIEW_AND_HANDOFF.md) for the source review, backend improvements, production checklist and known limitations.
 
-*Update the structure above to match your actual project files.*
+## Important
 
-## 🚀 Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
-
-### 2. Open the project
-
-Open the project folder in Visual Studio Code.
-
-### 3. Run the website
-
-Open `index.html` in your browser, or use the Live Server extension in VS Code.
-
-## 🌐 Live Demo
-
-Add your deployed website URL here when available.
-
-## 👨‍💻 Author
-
-**Umar Raufi**
-
-Front-End Developer | Graphic Designer | AI Enthusiast
-
-- GitHub: https://github.com/coder2026-Raufi
-
-## 📄 License
-
-This project is available for learning and educational purposes.
-Add a specific open-source license if you want to formally define how others may use your code.
+No runtime AI feature is currently included in the source reviewed. Do not market the delivered website as AI-powered unless a separately scoped AI feature is implemented and tested. Keep production secrets in environment variables; never commit `.env`.

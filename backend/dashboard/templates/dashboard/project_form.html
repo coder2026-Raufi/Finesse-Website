@@ -1,0 +1,40 @@
+{% extends "dashboard/base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<p><a href="{% url 'dashboard:projects' %}">← All projects</a></p>
+<h1>{{ title }}</h1><p class="sub">Only the English text is required. If you leave another language empty, the website shows English there.</p>
+<form method="post" enctype="multipart/form-data" class="card">{% csrf_token %}
+  {% if form.non_field_errors %}<div class="banner" style="background:#fdecea;border-color:#f3bdb9">{{ form.non_field_errors }}</div>{% endif %}
+
+  <div class="fieldset"><legend>English (required)</legend>
+    <label for="{{ form.title_en.id_for_label }}">Title</label>{{ form.title_en }}{{ form.title_en.errors }}
+    <label for="{{ form.description_en.id_for_label }}">Description</label>{{ form.description_en }}{{ form.description_en.errors }}
+    <div class="help">1–3 sentences: what the project was and what it achieved.</div>
+  </div>
+
+  <div class="cols">
+    <div class="fieldset"><legend>فارسی (Persian)</legend>
+      <label>Title</label>{{ form.title_fa }}{{ form.title_fa.errors }}<label>Description</label>{{ form.description_fa }}{{ form.description_fa.errors }}</div>
+    <div class="fieldset"><legend>پښتو (Pashto)</legend>
+      <label>Title</label>{{ form.title_ps }}{{ form.title_ps.errors }}<label>Description</label>{{ form.description_ps }}{{ form.description_ps.errors }}</div>
+  </div>
+  <div class="fieldset"><legend>العربية (Arabic)</legend>
+    <label>Title</label>{{ form.title_ar }}{{ form.title_ar.errors }}<label>Description</label>{{ form.description_ar }}{{ form.description_ar.errors }}</div>
+
+  <div class="cols">
+    <div><label for="{{ form.category.id_for_label }}">Category</label>{{ form.category }}{{ form.category.errors }}</div>
+    <div><label for="{{ form.client.id_for_label }}">Client type</label>{{ form.client }}{{ form.client.errors }}</div>
+    <div><label for="{{ form.year.id_for_label }}">Year</label>{{ form.year }}{{ form.year.errors }}</div>
+    <div><label for="{{ form.duration_months.id_for_label }}">Duration (months)</label>{{ form.duration_months }}{{ form.duration_months.errors }}</div>
+  </div>
+
+  <label for="{{ form.image.id_for_label }}">Photo</label>
+  {% if obj and obj.image %}<img class="preview" src="{{ obj.image.url }}" alt=""><div class="help">Choose a new file only if you want to replace this photo.</div>{% endif %}
+  {{ form.image }}{{ form.image.errors }}
+  <div class="help">JPG or PNG, up to 8 MB. It is resized automatically. Wide photos (16:9) look best.</div>
+
+  <label style="display:flex;gap:10px;align-items:center;margin-top:18px">{{ form.is_published }} Show this project on the website</label>
+
+  <div class="row" style="margin-top:22px"><button class="btn" type="submit">Save project</button><a class="btn ghost" href="{% url 'dashboard:projects' %}">Cancel</a></div>
+</form>
+{% endblock %}

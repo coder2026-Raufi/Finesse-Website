@@ -1839,3 +1839,16 @@ html[dir="rtl"] .page-title {
     transform: none !important;
   }
 }
+
+
+/* contact form result message (success / error) */
+.form-status {
+  margin: 1rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.form-status[hidden] { display: none; }
+.form-status.ok { background: #e6f4ea; color: #1e6b34; border: 1px solid #b7dfc3; }
+.form-status.err { background: #fdecea; color: #a12622; border: 1px solid #f3bdb9; }

@@ -1,0 +1,116 @@
+[
+ {
+  "category": "research",
+  "image": "build.jpg",
+  "year": 2025,
+  "months": 6,
+  "client": "dev",
+  "title": [
+   "Community Needs Study",
+   "مطالعه نیازهای جامعه",
+   "د ټولنې د اړتیاوو مطالعه",
+   "دراسة احتياجات المجتمع"
+  ],
+  "desc": [
+   "A field study that collected evidence directly from communities. The findings shaped program priorities, targeting, and the design of the next phase.",
+   "یک مطالعه میدانی که شواهد را مستقیماً از جوامع گردآوری کرد. یافته‌ها اولویت‌های برنامه، گروه هدف و طراحی مرحله بعدی را شکل دادند.",
+   "یوه ساحوي مطالعه چې شواهد یې مستقیم له ټولنو راټول کړل. موندنو د پروګرام لومړیتوبونه، هدف ګروپ او د راتلونکې مرحلې ډیزاین جوړ کړ.",
+   "دراسة ميدانية جمعت الأدلة مباشرةً من المجتمعات. وقد حدّدت النتائج أولويات البرنامج والفئات المستهدفة وتصميم المرحلة التالية."
+  ]
+ },
+ {
+  "category": "monitoring",
+  "image": "services.jpg",
+  "year": 2025,
+  "months": 9,
+  "client": "ngo",
+  "title": [
+   "Program Impact Evaluation",
+   "ارزیابی تأثیر برنامه",
+   "د پروګرام د اغېز ارزونه",
+   "تقييم أثر البرنامج"
+  ],
+  "desc": [
+   "An independent evaluation of results against the original goals. It documents what worked, what did not, and lessons for future programs.",
+   "ارزیابی مستقل نتایج در برابر اهداف اولیه. این ارزیابی آنچه موفق بود، آنچه نبود و درس‌های برنامه‌های آینده را مستند می‌کند.",
+   "د پایلو خپلواکه ارزونه د اصلي موخو په پرتله. دا مستندوي چې څه بریالي شول، څه نه شول، او د راتلونکو پروګرامونو لپاره کومې زده کړې شته.",
+   "تقييم مستقل للنتائج مقارنةً بالأهداف الأصلية. يوثّق ما نجح وما لم ينجح والدروس المستفادة للبرامج المستقبلية."
+  ]
+ },
+ {
+  "category": "capacity",
+  "image": "goal.jpg",
+  "year": 2024,
+  "months": 3,
+  "client": "gov",
+  "title": [
+   "Staff Training Program",
+   "برنامه آموزشی کارکنان",
+   "د کارکوونکو روزنیز پروګرام",
+   "برنامج تدريب الموظفين"
+  ],
+  "desc": [
+   "A series of practical workshops that build real skills inside partner organizations, with follow-up support after each session.",
+   "مجموعه‌ای از ورکشاپ‌های عملی که مهارت‌های واقعی را در سازمان‌های شریک می‌سازند، همراه با حمایت پیگیری پس از هر جلسه.",
+   "د عملي ورکشاپونو لړۍ چې د ملګرو سازمانونو دننه رښتیني مهارتونه جوړوي، د هرې ناستې وروسته د تعقیبي ملاتړ سره.",
+   "سلسلة من ورش العمل التطبيقية التي تبني مهارات حقيقية داخل المؤسسات الشريكة، مع دعم متابعة بعد كل جلسة."
+  ]
+ },
+ {
+  "category": "consulting",
+  "image": "team.jpg",
+  "year": 2024,
+  "months": 6,
+  "client": "biz",
+  "title": [
+   "Organizational Review",
+   "بررسی سازمانی",
+   "سازماني بیاکتنه",
+   "المراجعة التنظيمية"
+  ],
+  "desc": [
+   "A structured review of systems, roles, and processes, ending with clear and practical recommendations to improve performance.",
+   "بررسی ساختارمند سیستم‌ها، نقش‌ها و پروسه‌ها که با پیشنهادهای روشن و عملی برای بهبود عملکرد پایان می‌یابد.",
+   "د سیستمونو، رولونو او پروسو منظمه بیاکتنه چې د فعالیت د ښه کولو لپاره په روښانو او عملي وړاندیزونو پای ته رسېږي.",
+   "مراجعة منظمة للأنظمة والأدوار والعمليات، تنتهي بتوصيات واضحة وعملية لتحسين الأداء."
+  ]
+ },
+ {
+  "category": "strategy",
+  "image": "contact.jpg",
+  "year": 2023,
+  "months": 12,
+  "client": "gov",
+  "title": [
+   "Strategic Planning Support",
+   "حمایت از برنامه‌ریزی استراتیژیک",
+   "د ستراتیژیک پلان جوړونې ملاتړ",
+   "دعم التخطيط الاستراتيجي"
+  ],
+  "desc": [
+   "Support for an institution to turn its goals into a clear multi-year plan, with priorities, responsibilities, and measurable targets.",
+   "حمایت از یک نهاد برای تبدیل اهداف خود به یک پلان چندساله روشن، با اولویت‌ها، مسئولیت‌ها و اهداف قابل اندازه‌گیری.",
+   "د یو بنسټ ملاتړ چې خپلې موخې په روښانه څو کلنه پلان بدلې کړي، د لومړیتوبونو، مسؤلیتونو او د اندازه کولو وړ هدفونو سره.",
+   "دعم مؤسسة لتحويل أهدافها إلى خطة واضحة متعددة السنوات، تتضمن الأولويات والمسؤوليات والأهداف القابلة للقياس."
+  ]
+ },
+ {
+  "category": "research",
+  "image": "login-back.jpg",
+  "year": 2023,
+  "months": 3,
+  "client": "ngo",
+  "title": [
+   "Baseline Survey",
+   "سروی پایه",
+   "بنسټیزه سروې",
+   "المسح الأساسي"
+  ],
+  "desc": [
+   "A baseline survey that sets the starting point for a program, so progress can be measured honestly over time.",
+   "یک سروی پایه که نقطه آغاز برنامه را تعیین می‌کند تا پیشرفت در طول زمان صادقانه سنجیده شود.",
+   "بنسټیزه سروې چې د پروګرام د پیل ټکی ټاکي، ترڅو پرمختګ په اوږد وخت کې په صادقانه توګه وسنجول شي.",
+   "مسح أساسي يحدد نقطة انطلاق البرنامج، ليُقاس التقدم بصدق مع مرور الوقت."
+  ]
+ }
+]

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>{% block title %}Dashboard{% endblock %} · Finesse</title>
+<style>
+:root{--navy:#0d2a4a;--blue:#0b72d1;--cyan:#27bdf0;--bg:#f2f6fb;--card:#fff;--ink:#17283d;--muted:#6b7c93;--line:#e2e9f2;--ok:#1e8a4c;--bad:#c93a35;--warn:#b7791f;--r:14px}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:var(--blue);text-decoration:none}
+.shell{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+.side{background:linear-gradient(180deg,var(--navy),#0a1f38);color:#cfe0f3;padding:22px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
+.brand{font-weight:800;font-size:20px;color:#fff;letter-spacing:.3px;margin:0 8px 4px}
+.brand small{display:block;font-weight:500;font-size:12px;color:#8fb0d4;letter-spacing:0}
+.nav{margin-top:26px;display:flex;flex-direction:column;gap:4px}
+.nav a{color:#cfe0f3;padding:10px 12px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.nav a:hover{background:rgba(255,255,255,.08)}
+.nav a.on{background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff}
+.pill{background:var(--cyan);color:#06304f;border-radius:999px;font-size:12px;font-weight:800;padding:1px 8px}
+.side .foot{margin-top:auto;font-size:13px;padding:0 8px}
+.side .foot form{margin-top:8px}
+.main{padding:28px clamp(16px,3vw,40px);max-width:1200px;width:100%}
+h1{margin:0 0 4px;font-size:26px}
+.sub{color:var(--muted);margin:0 0 22px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:0 1px 2px rgba(13,42,74,.04)}
+.card h2{font-size:16px;margin:0 0 14px}
+.grid{display:grid;gap:16px}
+.stats{grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:16px}
+.stat .n{font-size:34px;font-weight:800;line-height:1.1}
+.stat .l{color:var(--muted);font-weight:600;font-size:13px}
+.stat.hot .n{color:var(--blue)}
+.two{grid-template-columns:1.5fr 1fr}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.side{position:static;height:auto}.two{grid-template-columns:1fr}.nav{flex-direction:row;flex-wrap:wrap}.side .foot{margin-top:14px}}
+.chart{display:flex;align-items:flex-end;gap:6px;height:170px;padding-top:10px}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+.bar i{display:block;width:100%;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--cyan),var(--blue))}
+.bar i.z{background:var(--line)}
+.bar b{font-size:11px;color:var(--ink);margin-bottom:3px}
+.bar span{font-size:10px;color:var(--muted);margin-top:6px;white-space:nowrap}
+.hb{margin:10px 0}.hb div{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.hb i{display:block;height:8px;border-radius:8px;background:var(--line);overflow:hidden}.hb i u{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:8px}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr.unread td{background:#f3f9ff;font-weight:600}
+.tag{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#e8eef6;color:#40566f}
+.tag.new{background:#dff1ff;color:var(--blue)}.tag.replied{background:#e1f5e9;color:var(--ok)}.tag.archived{background:#eee;color:#777}
+.tag.live{background:#e1f5e9;color:var(--ok)}.tag.hidden{background:#fdecd2;color:var(--warn)}
+.btn{display:inline-block;border:0;cursor:pointer;font:inherit;font-weight:700;padding:9px 16px;border-radius:10px;background:linear-gradient(90deg,var(--blue),var(--cyan));color:#fff}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.danger{background:#fff;color:var(--bad);border:1px solid #f0c4c2}
+.btn.danger:hover{background:var(--bad);color:#fff}
+.btn.sm{padding:6px 12px;font-size:13px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.msgs{list-style:none;padding:0;margin:0 0 18px}
+.msgs li{padding:12px 16px;border-radius:10px;margin-bottom:8px;font-weight:600;background:#e1f5e9;color:var(--ok)}
+.msgs li.error{background:#fdecea;color:var(--bad)}
+.banner{border-radius:var(--r);padding:14px 18px;margin-bottom:16px;background:#fff6e0;border:1px solid #f1d9a0;color:#7a5412}
+.banner b{color:#5d3f09}
+form.inline{display:inline}
+label{display:block;font-weight:700;margin:14px 0 5px;font-size:14px}
+input[type=text],input[type=number],input[type=password],select,textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #cfd9e6;border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--cyan);border-color:var(--cyan)}
+.errorlist{list-style:none;margin:4px 0 0;padding:0;color:var(--bad);font-size:13px;font-weight:600}
+.help{color:var(--muted);font-size:13px;margin-top:3px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+@media(max-width:700px){.cols{grid-template-columns:1fr}}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.proj{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.proj .img{aspect-ratio:16/9;background:linear-gradient(135deg,#dbe9f8,#eef5fc) center/cover;display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+.proj .body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.proj h3{margin:0;font-size:17px}
+.proj .meta{color:var(--muted);font-size:13px}
+.proj .row{margin-top:auto;padding-top:6px}
+.empty{text-align:center;padding:46px 20px;color:var(--muted)}
+.msgbody{white-space:pre-wrap;word-wrap:break-word;background:#f7fafd;border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0 18px}
+dl{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;margin:0}dt{color:var(--muted);font-weight:600}dd{margin:0}
+.fieldset{border:1px solid var(--line);border-radius:12px;padding:4px 18px 18px;margin:16px 0}
+.fieldset legend{font-weight:800;padding:0 8px}
+.preview{max-width:260px;border-radius:10px;border:1px solid var(--line);display:block;margin-bottom:8px}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(135deg,var(--navy),#0b4a86)}
+.login .card{width:100%;max-width:400px;padding:30px}
+.pager{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:16px;color:var(--muted)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.filters a{padding:6px 14px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:14px}
+.filters a.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+</style>
+</head>
+<body>
+{% if user.is_authenticated %}
+<div class="shell">
+  <aside class="side">
+    <div class="brand">FINESSE<small>Website dashboard</small></div>
+    <nav class="nav">
+      <a href="{% url 'dashboard:overview' %}" class="{% if active == 'overview' %}on{% endif %}">Overview</a>
+      <a href="{% url 'dashboard:messages' %}" class="{% if active == 'messages' %}on{% endif %}">Messages {% if nav_new %}<span class="pill">{{ nav_new }}</span>{% endif %}</a>
+      <a href="{% url 'dashboard:projects' %}" class="{% if active == 'projects' %}on{% endif %}">Projects</a>
+    </nav>
+    <div class="foot">
+      Signed in as <b>{{ user.get_username }}</b>
+      <form method="post" action="{% url 'dashboard:logout' %}">{% csrf_token %}<button class="btn ghost sm" type="submit">Log out</button></form>
+    </div>
+  </aside>
+  <main class="main">
+    {% if messages %}<ul class="msgs">{% for m in messages %}<li class="{{ m.tags }}">{{ m }}</li>{% endfor %}</ul>{% endif %}
+    {% block content %}{% endblock %}
+  </main>
+</div>
+{% else %}
+{% block bare %}{% endblock %}
+{% endif %}
+</body>
+</html>

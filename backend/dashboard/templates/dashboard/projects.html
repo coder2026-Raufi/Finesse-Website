@@ -1,0 +1,31 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+<div class="top"><div><h1>Projects</h1><p class="sub">These appear on the website’s Projects page, within about 30 seconds after you save.</p></div>
+  <a class="btn" href="{% url 'dashboard:project_new' %}">+ Add project</a></div>
+{% if projects %}
+<div class="pgrid">
+{% for p in projects %}
+  <div class="card proj">
+    <div class="img" {% if p.image %}style="background-image:url('{{ p.image.url }}')"{% endif %}>{% if not p.image %}No photo{% endif %}</div>
+    <div class="body">
+      <div class="row"><span class="tag">{{ p.get_category_display }}</span>
+        <span class="tag {% if p.is_published %}live{% else %}hidden{% endif %}">{% if p.is_published %}On website{% else %}Hidden{% endif %}</span></div>
+      <h3>{{ p.title_en }}</h3>
+      <div class="meta">{{ p.year }}{% if p.duration_months %} · {{ p.duration_months }} months{% endif %}{% if p.client %} · {{ p.get_client_display }}{% endif %}</div>
+      <div class="row">
+        <a class="btn ghost sm" href="{% url 'dashboard:project_edit' p.pk %}">Edit</a>
+        <form class="inline" method="post" action="{% url 'dashboard:project_toggle' p.pk %}">{% csrf_token %}<button class="btn ghost sm" type="submit">{% if p.is_published %}Hide{% else %}Show{% endif %}</button></form>
+        <form class="inline" method="post" action="{% url 'dashboard:project_delete' p.pk %}" onsubmit="return confirm('Delete “{{ p.title_en|escapejs }}” forever? This cannot be undone.')">{% csrf_token %}<button class="btn danger sm" type="submit">Delete</button></form>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% else %}
+<div class="card empty"><h2 style="color:var(--ink)">No projects yet</h2>
+  <p>Add your first project, or start with the 6 sample projects that were in your old Projects page.</p>
+  <div class="row" style="justify-content:center"><a class="btn" href="{% url 'dashboard:project_new' %}">+ Add project</a>
+    <form class="inline" method="post" action="{% url 'dashboard:project_samples' %}">{% csrf_token %}<button class="btn ghost" type="submit">Load the 6 sample projects</button></form></div></div>
+{% endif %}
+{% endblock %}

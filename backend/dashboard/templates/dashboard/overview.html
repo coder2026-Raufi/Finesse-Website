@@ -1,0 +1,40 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Overview{% endblock %}
+{% block content %}
+<div class="top"><div><h1>Overview</h1><p class="sub">What is happening on your website.</p></div>
+  <a class="btn" href="{% url 'dashboard:project_new' %}">+ Add project</a></div>
+
+{% if not email_real %}
+<div class="banner"><b>Email is not set up yet.</b> New messages are saved here in the dashboard, but no email is sent to the company inbox.
+  Add the email password in <code>.env</code> (see BACKEND.md, “Turn on real emails”).</div>
+{% elif unsent %}
+<div class="banner"><b>{{ unsent }} message{{ unsent|pluralize }} could not be emailed.</b> They are safe here. Run <code>python manage.py retry_notifications</code> to try again.</div>
+{% endif %}
+
+<div class="grid stats">
+  <div class="card stat hot"><div class="n">{{ new_count }}</div><div class="l">New messages</div></div>
+  <div class="card stat"><div class="n">{{ week }}</div><div class="l">Messages, last 7 days</div></div>
+  <div class="card stat"><div class="n">{{ total }}</div><div class="l">Messages, all time</div></div>
+  <div class="card stat"><div class="n">{{ projects_live }}<small style="font-size:16px;color:var(--muted)"> / {{ projects_all }}</small></div><div class="l">Projects on website</div></div>
+</div>
+
+<div class="grid two">
+  <div class="card"><h2>Messages per day (last 14 days)</h2>
+    <div class="chart">{% for c in chart %}<div class="bar" title="{{ c.label }}: {{ c.n }}">{% if c.n %}<b>{{ c.n }}</b>{% endif %}<i class="{% if not c.n %}z{% endif %}" style="height:{{ c.h }}%"></i><span>{{ c.label }}</span></div>{% endfor %}</div>
+  </div>
+  <div class="card"><h2>What people ask about</h2>
+    {% for s in by_subject %}<div class="hb"><div><span>{{ s.label }}</span><b>{{ s.n }}</b></div><i><u style="width:{{ s.w }}%"></u></i></div>{% endfor %}
+  </div>
+</div>
+
+<div class="card" style="margin-top:16px"><h2>Latest messages</h2>
+  {% if recent %}<table>
+    <tr><th>From</th><th>Subject</th><th>Received</th><th>Status</th></tr>
+    {% for m in recent %}<tr class="{% if m.status == 'new' %}unread{% endif %}">
+      <td><a href="{% url 'dashboard:message' m.pk %}">{{ m.name }}</a><div class="help">{{ m.email }}</div></td>
+      <td>{{ m.get_subject_display }}</td><td>{{ m.created_at|date:"d M Y, H:i" }}</td>
+      <td><span class="tag {{ m.status }}">{{ m.get_status_display }}</span></td></tr>{% endfor %}
+  </table><p style="margin:14px 0 0"><a href="{% url 'dashboard:messages' %}">See all messages →</a></p>
+  {% else %}<div class="empty">No messages yet. They will appear here as soon as someone uses the contact form.</div>{% endif %}
+</div>
+{% endblock %}

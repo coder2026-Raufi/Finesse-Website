@@ -325,6 +325,195 @@
     }
   }
 
-  document.querySelectorAll(".pc").forEach(Carousel);
-  initGrid();
+  /* ---------- Part C: load the projects from the backend ----------
+     The Finesse dashboard stores the projects. This asks the API for them and builds the
+     carousel slides and the cards. If the server cannot be reached, the hand-written
+     cards that are already in the HTML stay (so the page never breaks). */
+  var CAT_KEY = { research: "pc.s1.cat", monitoring: "pc.s2.cat", capacity: "pc.s3.cat", consulting: "pc.s4.cat", strategy: "pc.s5.cat" };
+  var CAT_EN = { research: "Research", monitoring: "Monitoring & Evaluation", capacity: "Capacity Development", consulting: "Management Consulting", strategy: "Strategy" };
+  var CLIENT_KEY = { dev: "pj.c.dev", ngo: "pj.c.ngo", gov: "pj.c.gov", biz: "pj.c.biz" };
+  var CLIENT_EN = { dev: "Development partner", ngo: "NGO", gov: "Government", biz: "Private sector" };
+  var FALLBACK_IMG = "../IMAGES/web/build.jpg";
+  var dyn = []; /* [{el, fn}] text that must change when the language changes */
+
+  function lang() {
+    return (window.FinesseI18n && window.FinesseI18n.lang) || "en";
+  }
+  function digits(str, l) {
+    var set = l === "ar" ? "٠١٢٣٤٥٦٧٨٩" : l === "fa" || l === "ps" ? "۰۱۲۳۴۵۶۷۸۹" : null;
+    return set ? String(str).replace(/\d/g, function (d) { return set[d]; }) : String(str);
+  }
+  function monthsText(n, l) {
+    var w;
+    if (l === "fa") w = "ماه";
+    else if (l === "ps") w = "میاشتې";
+    else if (l === "ar") w = n === 1 ? "شهر" : n === 2 ? "شهران" : n <= 10 ? "أشهر" : "شهرًا";
+    else return n + (n === 1 ? " month" : " months");
+    return digits(n, l) + " " + w;
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function icon(cls) {
+    var i = el("i", cls);
+    i.setAttribute("aria-hidden", "true");
+    return i;
+  }
+  /* an element whose text depends on the language */
+  function dynEl(tag, cls, fn) {
+    var e = el(tag, cls, fn(lang()));
+    dyn.push({ el: e, fn: fn });
+    return e;
+  }
+  function catText(p) {
+    return function (l) {
+      return l === "en" ? CAT_EN[p.category] : t(CAT_KEY[p.category], CAT_EN[p.category]);
+    };
+  }
+  function pick(map) {
+    return function (l) { return map[l] || map.en || ""; };
+  }
+  function labeled(iconCls, key, enLabel, valueNode) {
+    var li = el("li");
+    li.appendChild(icon(iconCls));
+    var sm = el("small", "", enLabel);
+    sm.setAttribute("data-i18n", key);
+    li.appendChild(sm);
+    li.appendChild(valueNode);
+    return li;
+  }
+  function two(n) {
+    return n < 10 ? "0" + n : String(n);
+  }
+  function viewLink(cls, id) {
+    var a = el("a", cls);
+    a.href = "#pj-" + id;
+    var sp = el("span", "", "View project");
+    sp.setAttribute("data-i18n", "pc.view");
+    a.appendChild(sp);
+    a.appendChild(icon("fa-solid fa-arrow-right-long"));
+    return a;
+  }
+
+  function buildSlide(p, i) {
+    var li = el("li", "pc-slide");
+    var card = el("article", "pc-card");
+    var media = el("div", "pc-media");
+    var img = el("img");
+    img.src = p.image || FALLBACK_IMG;
+    img.alt = "";
+    img.loading = "lazy";
+    img.draggable = false;
+    media.appendChild(img);
+    var idx = el("span", "pc-index", two(i + 1));
+    idx.setAttribute("aria-hidden", "true");
+    var info = el("div", "pc-info");
+    info.appendChild(dynEl("span", "pc-cat", catText(p)));
+    info.appendChild(dynEl("h2", "pc-name", pick(p.title)));
+    info.appendChild(dynEl("p", "pc-text", pick(p.description)));
+    info.appendChild(viewLink("pc-btn", p.id));
+    card.appendChild(media);
+    card.appendChild(idx);
+    card.appendChild(info);
+    li.appendChild(card);
+    return li;
+  }
+
+  function buildCard(p, i) {
+    var card = el("article", "pj-card reveal in");
+    card.id = "pj-" + p.id;
+    card.setAttribute("data-cat", p.category);
+    var media = el("div", "pj-media");
+    var img = el("img");
+    img.src = p.image || FALLBACK_IMG;
+    img.alt = "";
+    img.loading = "lazy";
+    img.draggable = false;
+    media.appendChild(img);
+    var no = el("span", "pj-no", two(i + 1));
+    no.setAttribute("aria-hidden", "true");
+    var info = el("div", "pj-info");
+    info.appendChild(dynEl("span", "pj-cat", catText(p)));
+    info.appendChild(dynEl("h3", "pj-name", pick(p.title)));
+    var more = el("div", "pj-more");
+    var inner = el("div");
+    inner.appendChild(dynEl("p", "pj-desc", pick(p.description)));
+    var meta = el("ul", "pj-meta");
+    meta.appendChild(labeled("fa-regular fa-calendar", "pj.year", "Year", dynEl("b", "", function (l) { return digits(p.year, l); })));
+    if (p.duration_months)
+      meta.appendChild(labeled("fa-regular fa-clock", "pj.duration", "Duration", dynEl("b", "", function (l) { return monthsText(p.duration_months, l); })));
+    if (p.client && CLIENT_KEY[p.client])
+      meta.appendChild(labeled("fa-regular fa-building", "pj.client", "Client", dynEl("b", "", function (l) { return l === "en" ? CLIENT_EN[p.client] : t(CLIENT_KEY[p.client], CLIENT_EN[p.client]); })));
+    inner.appendChild(meta);
+    inner.appendChild(viewLink("pj-go", p.id));
+    more.appendChild(inner);
+    info.appendChild(more);
+    card.appendChild(media);
+    card.appendChild(no);
+    card.appendChild(info);
+    return card;
+  }
+
+  function retext() {
+    var l = lang();
+    dyn.forEach(function (d) { d.el.textContent = d.fn(l); });
+  }
+  document.addEventListener("finesse:lang", retext);
+
+  function render(projects) {
+    /* build everything first; touch the page only when nothing failed */
+    var slides = projects.map(buildSlide);
+    var cards = projects.map(buildCard);
+    var track = document.querySelector(".pc-track");
+    var grid = document.querySelector(".pj-grid");
+    var carousel = document.querySelector(".pc");
+    var empty = null;
+    if (!projects.length) {
+      empty = el("p", "pj-lead", "New projects will be published here soon.");
+      empty.setAttribute("data-i18n", "pj.empty");
+    }
+    if (track) { track.textContent = ""; slides.forEach(function (s) { track.appendChild(s); }); }
+    if (grid) { grid.textContent = ""; cards.forEach(function (c) { grid.appendChild(c); }); if (empty) grid.appendChild(empty); }
+    if (carousel && !projects.length) carousel.style.display = "none";
+    /* the "01 / 05" counter: the total was written by hand in the HTML */
+    var cnt = document.querySelector(".pc-count");
+    if (cnt && cnt.lastChild && cnt.lastChild.nodeType === 3) cnt.lastChild.textContent = " / " + two(projects.length);
+    /* hide filter buttons for categories that have no project */
+    var have = {};
+    projects.forEach(function (p) { have[p.category] = true; });
+    document.querySelectorAll(".pj-chip").forEach(function (c) {
+      var f = c.getAttribute("data-filter");
+      c.hidden = f !== "all" && !have[f];
+    });
+  }
+
+  function start() {
+    document.querySelectorAll(".pc").forEach(Carousel);
+    initGrid();
+    document.documentElement.classList.remove("pj-wait");
+  }
+
+  var API_URL = (window.FINESSE_API_BASE || "").replace(/\/$/, "") + "/api/projects/";
+  var ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+  var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 5000);
+  fetch(API_URL, ctrl ? { signal: ctrl.signal } : {})
+    .then(function (r) {
+      if (!r.ok) throw new Error("bad status");
+      return r.json();
+    })
+    .then(function (data) {
+      clearTimeout(timer);
+      if (!data || !Array.isArray(data.projects)) throw new Error("bad data");
+      render(data.projects);
+      /* translate the fixed labels (Year, Duration, View project ...) in the new elements */
+      if (window.FinesseI18n) window.FinesseI18n.setLang(window.FinesseI18n.lang);
+      start();
+    })
+    .catch(function () {
+      clearTimeout(timer);
+      start(); /* server unreachable: keep the static cards */
+    });
 })();

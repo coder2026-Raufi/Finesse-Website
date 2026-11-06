@@ -30,6 +30,7 @@
     <!-- script files -->
     <script src="../JS/jquery-3.7.1.slim.min.js" defer></script>
     <script src="../JS/bootstrap.bundle.min.js" defer></script>
+    <script src="../JS/config.js"></script>
     <script src="../JS/i18n.js" defer></script>
     <script src="../JS/main-script.js" defer></script>
   </head>
@@ -198,8 +199,14 @@
                     <textarea name="message" class="form-control" id="message" placeholder="Type your message" data-i18n-ph="form.msg.ph" rows="6" required minlength="10"></textarea>
                     <div class="invalid-feedback" data-i18n="form.invalid">Please fill in this field.</div>
                   </div>
+                                    <!-- honeypot: hidden from people, bots fill it in -->
+                  <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+                    <label for="website">Leave this field empty</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+                  </div>
                   <button class="btn btn-primary send-btn" type="submit"><i class="fa-solid fa-paper-plane"></i><span data-i18n="form.send">Send Message</span></button>
-                  <p class="form-note" data-i18n="form.note">Sending opens your email app with the message ready to send.</p>
+                  <div id="formStatus" class="form-status" role="status" aria-live="polite" hidden></div>
+                  <p class="form-note" data-i18n="form.note">Your message is sent directly to our team.</p>
                 </form>
               </div>
             </div>

@@ -1,0 +1,29 @@
+{% extends "dashboard/base.html" %}
+{% load dash_extras %}
+{% block title %}Messages{% endblock %}
+{% block content %}
+<h1>Messages</h1><p class="sub">Everything sent through the website’s contact form.</p>
+<div class="filters">
+  <a href="?" class="{% if not status %}on{% endif %}">All</a>
+  {% for value, label in statuses %}<a href="?status={{ value }}" class="{% if status == value %}on{% endif %}">{{ label }} ({{ counts|get:value }})</a>{% endfor %}
+</div>
+<form method="get" class="row" style="margin-bottom:14px">
+  {% if status %}<input type="hidden" name="status" value="{{ status }}">{% endif %}
+  <input type="text" name="q" value="{{ q }}" placeholder="Search name, email or text…" style="max-width:360px">
+  <button class="btn ghost" type="submit">Search</button>
+</form>
+<div class="card">
+{% if page.object_list %}<table>
+  <tr><th>From</th><th>Subject</th><th>Message</th><th>Received</th><th>Status</th></tr>
+  {% for m in page %}<tr class="{% if m.status == 'new' %}unread{% endif %}">
+    <td><a href="{% url 'dashboard:message' m.pk %}">{{ m.name }}</a><div class="help">{{ m.email }}</div></td>
+    <td>{{ m.get_subject_display }}</td><td>{{ m.message|truncatechars:70 }}</td>
+    <td style="white-space:nowrap">{{ m.created_at|date:"d M Y, H:i" }}</td>
+    <td><span class="tag {{ m.status }}">{{ m.get_status_display }}</span></td></tr>{% endfor %}
+</table>
+<div class="pager">{% if page.has_previous %}<a href="?page={{ page.previous_page_number }}&status={{ status }}&q={{ q|urlencode }}">← Newer</a>{% endif %}
+  <span>Page {{ page.number }} of {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a href="?page={{ page.next_page_number }}&status={{ status }}&q={{ q|urlencode }}">Older →</a>{% endif %}</div>
+{% else %}<div class="empty">No messages found.</div>{% endif %}
+</div>
+{% endblock %}

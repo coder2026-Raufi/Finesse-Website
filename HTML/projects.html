@@ -23,6 +23,17 @@
         } catch (e) {}
       })();
     </script>
+        <script>
+      /* hide the hand-written sample cards until the real projects have loaded (no flash of old content) */
+      (function () {
+        var d = document.documentElement;
+        d.classList.add("pj-wait");
+        setTimeout(function () { d.classList.remove("pj-wait"); }, 6000);
+      })();
+    </script>
+    <style>
+      html.pj-wait .pc-stage, html.pj-wait .pj-grid { visibility: hidden; }
+    </style>
     <!-- css files -->
     <link rel="stylesheet" href="../CSS/bootstrap.min.css" />
     <link
@@ -34,6 +45,7 @@
     <!-- script files -->
     <script src="../JS/jquery-3.7.1.slim.min.js" defer></script>
     <script src="../JS/bootstrap.bundle.min.js" defer></script>
+    <script src="../JS/config.js"></script>
     <script src="../JS/i18n.js" defer></script>
     <script src="../JS/main-script.js" defer></script>
     <script src="../JS/projects.js" defer></script>

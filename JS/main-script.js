@@ -190,26 +190,93 @@
   }
 
   /* ---------- 8. CONTACT FORM ----------
-     There is no server yet, so the form opens the visitor's email app with the
-     message already written (mailto:). Replace this with fetch() when the
-     back-end is ready. */
+     Sends the message to the Finesse backend (POST /api/contact/).
+     The server validates again, saves the message and emails the team.
+     Where the API lives is set in JS/config.js. */
+  function tx(key, fallback) {
+    return (window.FinesseI18n && window.FinesseI18n.t(key)) || fallback;
+  }
+
   var form = document.getElementById("contactForm");
   if (form) {
+    var statusBox = document.getElementById("formStatus");
+    var sendBtn = form.querySelector(".send-btn");
+    var sendLabel = sendBtn.querySelector("span");
+    var API_URL = (window.FINESSE_API_BASE || "").replace(/\/$/, "") + "/api/contact/";
+    /* server field name -> input id on this page */
+    var FIELD_IDS = { name: "username", email: "useremail", subject: "subject", message: "message" };
+
+    function showStatus(kind, text) {
+      statusBox.hidden = false;
+      statusBox.className = "form-status " + kind;
+      statusBox.textContent = text; /* textContent (never innerHTML): safe */
+    }
+
+    function setSending(on) {
+      sendBtn.disabled = on;
+      sendLabel.removeAttribute("data-i18n");
+      sendLabel.textContent = on ? tx("form.sending", "Sending…") : tx("form.send", "Send Message");
+      if (!on) sendLabel.setAttribute("data-i18n", "form.send");
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      statusBox.hidden = true;
       form.classList.add("was-validated");
       if (!form.checkValidity()) return;
-      var name = form.elements["username"].value.trim();
-      var email = form.elements["useremail"].value.trim();
-      var subjectSel = form.elements["subject"];
-      var subject = subjectSel.options[subjectSel.selectedIndex].text;
-      var message = form.elements["message"].value.trim();
-      var body = message + "\n\n— " + name + " (" + email + ")";
-      window.location.href =
-        "mailto:finesse.researchmc@gmail.com?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
+
+      var payload = {
+        name: form.elements["username"].value.trim(),
+        email: form.elements["useremail"].value.trim(),
+        subject: form.elements["subject"].value,
+        message: form.elements["message"].value.trim(),
+        website: form.elements["website"].value /* honeypot, must stay empty */,
+        language: (window.FinesseI18n && window.FinesseI18n.lang) || "en",
+      };
+
+      setSending(true);
+      fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+        .then(function (res) {
+          return res
+            .json()
+            .catch(function () {
+              return {};
+            })
+            .then(function (data) {
+              return { status: res.status, data: data };
+            });
+        })
+        .then(function (r) {
+          if (r.status === 201 && r.data.ok) {
+            form.reset();
+            form.classList.remove("was-validated");
+            showStatus("ok", tx("form.ok", "Thank you! Your message was sent. Our team will get back to you soon."));
+          } else if (r.status === 429) {
+            showStatus("err", tx("form.err.rate", "You have sent several messages already. Please try again later."));
+          } else if (r.status === 400 && r.data.fields) {
+            Object.keys(r.data.fields).forEach(function (f) {
+              var el = document.getElementById(FIELD_IDS[f]);
+              if (el) el.classList.add("is-invalid");
+            });
+            showStatus("err", tx("form.invalid", "Please fill in this field."));
+          } else {
+            showStatus("err", tx("form.err.generic", "Your message could not be sent. Please try again."));
+          }
+        })
+        .catch(function () {
+          /* server unreachable: tell the visitor the direct email address */
+          showStatus(
+            "err",
+            tx("form.err.net", "We could not reach the server. Please email us directly at finesse.researchmc@gmail.com.")
+          );
+        })
+        .then(function () {
+          setSending(false);
+        });
     });
   }
 

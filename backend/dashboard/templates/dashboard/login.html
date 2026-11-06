@@ -1,0 +1,18 @@
+{% extends "dashboard/base.html" %}
+{% block title %}Sign in{% endblock %}
+{% block bare %}
+<div class="login"><div class="card">
+  <div class="brand" style="color:var(--navy);margin:0 0 4px;font-size:24px">FINESSE</div>
+  <p class="sub" style="margin-bottom:10px">Sign in to manage the website</p>
+  {% if locked %}<div class="banner"><b>Too many wrong attempts.</b> Please wait 15 minutes and try again.</div>{% endif %}
+  <form method="post">{% csrf_token %}
+    {% if form.errors and not locked %}<div class="banner" style="background:#fdecea;border-color:#f3bdb9;color:var(--bad)">Wrong username or password.</div>{% endif %}
+    <label for="id_username">Username</label>
+    <input type="text" name="username" id="id_username" autofocus autocomplete="username" required>
+    <label for="id_password">Password</label>
+    <input type="password" name="password" id="id_password" autocomplete="current-password" required>
+    <input type="hidden" name="next" value="{{ next }}">
+    <button class="btn" style="width:100%;margin-top:20px" type="submit">Sign in</button>
+  </form>
+</div></div>
+{% endblock %}
