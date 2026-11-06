@@ -1,9 +1,0 @@
-SuperUser = Finesse
-Pass = finesse-2026@Admin
-
-manager = finesse-manager
-pass = finesse@123#manager
-
-
-all manages website  = manage-finesse
-dashboard = dashboard
